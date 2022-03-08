@@ -5,6 +5,10 @@ public boolean insertCustomer(Customer customer){
 	customers.add(customer);
 	return true;}
 
+public List<Customer> getCustomers() {
+	return customers;
+}
+	
 @Override
 public Iterator<Customer> iterator() {
 	// TODO Auto-generated method stub
