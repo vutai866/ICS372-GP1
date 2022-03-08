@@ -4,9 +4,12 @@ public class Customer {
     private String customerAddress;
     private int customerPhoneNumber;
 
-    this.customerID = customerID;
-    this.customerName = customerName;
-    this.customerAddress = customerAddress;
-    this.customerPhoneNumber = customerPhoneNumber;
+    public Customer(int customerID, String customerName){
+        this.customerID = customerID;
+        this.customerName = customerName;
+
+    }// end public Customer class
+
+    
 
 }
