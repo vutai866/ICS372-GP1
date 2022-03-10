@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class CustomerList implements Iterable<Customer>{
 private List<Customer> customers = new ArrayList<>();
 
