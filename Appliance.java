@@ -5,6 +5,15 @@ public class Appliance {
 	private double price;
 	private int quantity;
 	
+	public Appliance( String applianceName, String brandName, double price, int quantity) {
+		// like customer appliance also generate a new id when it created
+		this.applianceID = new Random().nextInt(999999999);
+		this.applianceName = applianceName;
+		this.brandName = brandName;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	
 	public int getApplianceID() {
 		return applianceID;
 	}
