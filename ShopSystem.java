@@ -6,7 +6,9 @@ public class ShopSystem {
 	private ApplianceList appliances = new ApplianceList();
 
 	public void addCustomer(String name, String address,int phone) {
-	
+	Customer customer = new Customer(name, address, phone);
+		
+	customers.insertCustomer(customer);
 	}
 	
 	public void addOrder() {
