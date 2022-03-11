@@ -1,10 +1,16 @@
+import java.util.*;
 
-public class RepairPlan extends Customer{
+public class RepairPlan{
 
+    private String repairPlanID;
     private double repairCost;
 
-    public RepairPlan(int customerID, String customerName, Appliance getApplianceName) {
-        super(customerID, customerName, getApplianceName);
-        // TODO Auto-generated constructor stub
+    public RepairPlan(Customer customerID, Customer customerName, Appliance applianceList, String repairPlanID, double repairCost) {
+        this.repairPlanID = repairPlanID;
+        this.repairCost = repairCost;
+        
     }
-}
+
+    
+}// end RepairPlan class
+
