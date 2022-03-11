@@ -15,7 +15,7 @@ public class ShopSystem {
 	}
 	
 	public void addAppliance(String applianceName, String brandName, double price, int quantity){
-		Appliance appliance = new Appliance(applianceName, brandName. price, quantity);
+		Appliance appliance = new Appliance(applianceName, brandName, price, quantity);
 		
 		appliances.insertAppliance(appliance);
 		System.out.println("added sucessfully");
@@ -79,7 +79,7 @@ public class ShopSystem {
 		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
 		while(repairPlanIterator.hasNext()) {
 			RepairPlan targetRepairPlan  = repairPlanIterator.next();
-			if(targetRepairPlan.getRepairPlanID() == repairPlanID) {
+			if(targetRepairPlan.getPlanID() == repairPlanID) {
 				return targetRepairPlan;
 			}
 		}

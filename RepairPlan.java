@@ -1,6 +1,6 @@
 
 public class RepairPlan{
-
+	private int planID;
     private String repairPlanType;
     private boolean hasRepairPlan;
     private double repairCost;
@@ -65,6 +65,14 @@ public class RepairPlan{
     public double getRepairCost(){
         return repairCost;
     }//end getRepairCost
+
+	public int getPlanID() {
+		return planID;
+	}
+
+	public void setPlanID(int planID) {
+		this.planID = planID;
+	}
 
 }// end RepairPlan class
 
