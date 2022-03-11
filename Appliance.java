@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Appliance {
 	private int applianceID;
 	private String applianceName;
