@@ -4,6 +4,7 @@ public class ShopSystem {
 	private CustomerList customers = new CustomerList();
 	private OrderList orders = new OrderList();
 	private ApplianceList appliances = new ApplianceList();
+	private RepairPlanList repairPlans = new RepairPlanList();
 
 	public void addCustomer(String name, String address,int phone) {
 	Customer customer = new Customer(name, address, phone);
@@ -65,6 +66,21 @@ public class ShopSystem {
 			Appliance targetAppliance  = applianceIterator.next();
 			if(targetAppliance.getApplianceID() == applianceID) {
 				return targetAppliance;
+			}
+		}
+		return null;
+	}
+
+	public RepairPlanList getRepairPlans(){
+		return repairPlans;
+	}
+
+	public RepairPlan searchRepairPlan(int repairPlanID){
+		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
+		while(repairPlanIterator.hasNext()) {
+			RepairPlan targetRepairPlan  = repairPlanIterator.next();
+			if(targetRepairPlan.getRepairPlanID() == repairPlanID) {
+				return targetRepairPlan;
 			}
 		}
 		return null;
