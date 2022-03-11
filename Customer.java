@@ -29,9 +29,13 @@ public class Customer {
 	}
 
    //* 
-    public Customer(int customerID, String customerName, String customerAddress,
+    public Customer(String customerName, String customerAddress,
      int customerPhoneNumber) {
-        this.customerID = customerID;
+	/* 
+	the system is suppose to generate a id when a customer is created
+	generate a 9 digit id
+	*/
+        this.customerID = new Random().nextInt(999999999);
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerPhoneNumber = customerPhoneNumber;
