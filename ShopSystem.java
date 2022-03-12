@@ -8,7 +8,6 @@ public class ShopSystem {
 
 	public void addCustomer(String name, String address,int phone) {
 	Customer customer = new Customer(name, address, phone);
-		
 	customers.insertCustomer(customer);
 	System.out.println("added sucessfully");
 	System.out.print("remenber it, your id is:"+customer.getCustomerID());
@@ -22,7 +21,7 @@ public class ShopSystem {
 	}
 	
 	public static void addToInventory(int applianceId, int amount) {
-		Appliance appliance = searchAppliances(applianceId);
+		Appliance appliance = appliances.searchAppliances(applianceId);
 		int total = appliance.getQuantity() + amount;
 		appliance.setQuantity(total);
 	}
@@ -38,7 +37,7 @@ public class ShopSystem {
 
 	public void listAppliance(int id) {
 		System.out.println("printing the appliance information");
-		System.out.println(searchAppliances(id));
+		System.out.println(appliances.searchAppliances(id));
 	}
 	
 	public void addOrder() {
