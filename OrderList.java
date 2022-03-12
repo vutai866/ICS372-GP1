@@ -3,10 +3,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class OrderList implements Iterable<Order>{
-private List<Order> Orders = new ArrayList<>();
+private List<Order> orders = new ArrayList<>();
 
 	public boolean insertOrder(Order Order){
-		Orders.add(Order);
+		orders.add(Order);
 		return true;
 	}
 	
@@ -22,12 +22,12 @@ private List<Order> Orders = new ArrayList<>();
 	}
 
 	public List<Order> getOrders() {
-		return Orders;
+		return orders;
 	}
 		
 	@Override
 	public Iterator<Order> iterator() {
 		// TODO Auto-generated method stub
-		return Orders.iterator();
+		return orders.iterator();
 	}
 }
