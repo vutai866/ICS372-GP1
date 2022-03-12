@@ -9,6 +9,17 @@ private List<Appliance> appliances = new ArrayList<>();
 		appliances.add(appliance);
 		return true;
 	}
+	
+	public Appliance searchAppliances(int applianceID) {
+		Iterator<Appliance> applianceIterator = appliances.iterator();
+		while (applianceIterator.hasNext()) {
+			Appliance targetAppliance = applianceIterator.next();
+			if (targetAppliance.getApplianceID() == applianceID) {
+				return targetAppliance;
+			}
+		}
+		return null;
+	}
 
 	public List<Appliance> getAppliances() {
 		return appliances;
