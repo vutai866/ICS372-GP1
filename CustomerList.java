@@ -10,6 +10,17 @@ public class CustomerList implements Iterable<Customer>{
 		return true;
 	}
 	
+	public Customer searchCustomers(int customerID) {
+		Iterator<Customer> customerIterator = customers.iterator();
+		while(customerIterator.hasNext()) {
+			Customer targetCustomer  = customerIterator.next();
+			if(targetCustomer.getCustomerID() == customerID) {
+				return targetCustomer;
+			}
+		}
+		return null;
+	}
+	
 	public List<Customer> getCustomers() {
 		return customers;
 	}
