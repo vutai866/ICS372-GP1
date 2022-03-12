@@ -3,7 +3,7 @@ import java.util.Iterator;
 public class ShopSystem {
 	private CustomerList customers = new CustomerList();
 	private OrderList orders = new OrderList();
-	private ApplianceList appliances = new ApplianceList();
+	private static ApplianceList appliances = new ApplianceList();
 	private RepairPlanList repairPlans = new RepairPlanList();
 
 	public void addCustomer(String name, String address,int phone) {
@@ -80,7 +80,7 @@ public class ShopSystem {
 		this.appliances = appliances;
 	}
 	
-	public Appliance searchAppliances(int applianceID) {
+	public static Appliance searchAppliances(int applianceID) {
 		Iterator<Appliance> applianceIterator = appliances.iterator();
 		while(applianceIterator.hasNext()) {
 			Appliance targetAppliance  = applianceIterator.next();
