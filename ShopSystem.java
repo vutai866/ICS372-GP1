@@ -79,17 +79,6 @@ public class ShopSystem {
 	public void setAppliances(ApplianceList appliances) {
 		this.appliances = appliances;
 	}
-	
-	public static Appliance searchAppliances(int applianceID) {
-		Iterator<Appliance> applianceIterator = appliances.iterator();
-		while(applianceIterator.hasNext()) {
-			Appliance targetAppliance  = applianceIterator.next();
-			if(targetAppliance.getApplianceID() == applianceID) {
-				return targetAppliance;
-			}
-		}
-		return null;
-	}
 
 	public RepairPlanList getRepairPlans(){
 		return repairPlans;
