@@ -22,6 +22,12 @@ public class ShopSystem {
 		System.out.print("the appliance id is:"+appliance.getApplianceID());
 	}
 	
+	public static void addToInventory(int applianceId, int amount) {
+		Appliance appliance = searchAppliances(applianceId);
+		int total = appliance.getQuantity() + amount;
+		appliance.setQuantity(total);
+	}
+	
 	public void addOrder() {
 		
 	}
