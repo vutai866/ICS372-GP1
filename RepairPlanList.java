@@ -9,6 +9,17 @@ public class RepairPlanList implements Iterable<RepairPlan>{
         repairPlans.add(RepairPlan);
         return true;
     }
+    
+    public RepairPlan searchRepairPlan(int repairPlanID){
+		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
+		while(repairPlanIterator.hasNext()) {
+			RepairPlan targetRepairPlan  = repairPlanIterator.next();
+			if(targetRepairPlan.getPlanID() == repairPlanID) {
+				return targetRepairPlan;
+			}
+		}
+		return null;
+	}
 
     public List<RepairPlan> getRepairPlans() {
         return repairPlans;
