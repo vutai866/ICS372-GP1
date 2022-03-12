@@ -16,7 +16,6 @@ public class ShopSystem {
 	
 	public void addAppliance(String applianceName, String brandName, double price, int quantity){
 		Appliance appliance = new Appliance(applianceName, brandName, price, quantity);
-		
 		appliances.insertAppliance(appliance);
 		System.out.println("added sucessfully");
 		System.out.print("the appliance id is:"+appliance.getApplianceID());
@@ -46,32 +45,11 @@ public class ShopSystem {
 		
 	}
 	
-	public Customer searchCustomers(int customerID) {
-		Iterator<Customer> customerIterator = customers.iterator();
-		while(customerIterator.hasNext()) {
-			Customer targetCustomer  = customerIterator.next();
-			if(targetCustomer.getCustomerID() == customerID) {
-				return targetCustomer;
-			}
-		}
-		return null;
-	}
 
 	public CustomerList getCustomers() {
 		return customers;
 	}
 	
-	public Order searchOrders(int orderID) {
-		Iterator<Order> orderIterator = orders.iterator();
-		while(orderIterator.hasNext()) {
-			Order targetOrder  = orderIterator.next();
-			if(targetOrder.getOrderID() == orderID) {
-				return targetOrder;
-			}
-		}
-		return null;
-	}
-
 	public ApplianceList getAppliances() {
 		return appliances;
 	}
@@ -84,15 +62,5 @@ public class ShopSystem {
 		return repairPlans;
 	}
 
-	public RepairPlan searchRepairPlan(int repairPlanID){
-		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
-		while(repairPlanIterator.hasNext()) {
-			RepairPlan targetRepairPlan  = repairPlanIterator.next();
-			if(targetRepairPlan.getPlanID() == repairPlanID) {
-				return targetRepairPlan;
-			}
-		}
-		return null;
-	}
 	
 }
