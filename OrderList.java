@@ -9,6 +9,17 @@ private List<Order> Orders = new ArrayList<>();
 		Orders.add(Order);
 		return true;
 	}
+	
+	public Order searchOrders(int orderID) {
+		Iterator<Order> orderIterator = orders.iterator();
+		while(orderIterator.hasNext()) {
+			Order targetOrder  = orderIterator.next();
+			if(targetOrder.getOrderID() == orderID) {
+				return targetOrder;
+			}
+		}
+		return null;
+	}
 
 	public List<Order> getOrders() {
 		return Orders;
