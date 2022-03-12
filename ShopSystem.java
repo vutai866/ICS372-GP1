@@ -28,6 +28,20 @@ public class ShopSystem {
 		appliance.setQuantity(total);
 	}
 	
+	public void listAppliances() {
+		Iterator<Appliance> applianceIterator = appliances.iterator();
+		System.out.println("printing all appliance information");
+		while (applianceIterator.hasNext()) {
+			Appliance appliance = applianceIterator.next();
+			System.out.println(appliance);
+		}
+	}
+
+	public void listAppliance(int id) {
+		System.out.println("printing the appliance information");
+		System.out.println(searchAppliances(id));
+	}
+	
 	public void addOrder() {
 		
 	}
