@@ -41,7 +41,6 @@ public class UserInterface {
 			}else {
 				//This part relies on other things not yet finished.
 				System.out.println("Quantity exceeds inventory. Try creating a backorder ");
-				shop.addOrder(quantity, customer, appliance);
 			}	
 		}catch(Exception e) {
 			System.out.println("invalid input");
