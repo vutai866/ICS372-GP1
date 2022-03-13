@@ -1,3 +1,4 @@
+import java.util.*;
 public class Order {
     private int orderID;
     private double orderPrice;
@@ -5,8 +6,8 @@ public class Order {
     private Customer buyer;
     private Appliance appliance;
 
-    public Order(int orderID, double orderPrice, int quantity, Customer orderCustomer, Appliance setAppliance) {
-        this.setOrderID(orderID);
+    public Order(double orderPrice, int quantity, Customer orderCustomer, Appliance setAppliance) {
+        this.setOrderID(new Random().nextInt(999999999));
         this.setOrderPrice(orderPrice);
         this.setQuantity(quantity);
         this.setBuyer(orderCustomer);

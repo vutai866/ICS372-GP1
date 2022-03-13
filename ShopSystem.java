@@ -1,9 +1,10 @@
+import java.io.Serializable;
 import java.util.Iterator;
 
-public class ShopSystem {
+public class ShopSystem implements Serializable {
 	private CustomerList customers = new CustomerList();
 	private OrderList orders = new OrderList();
-	private static ApplianceList appliances = new ApplianceList();
+	private ApplianceList appliances = new ApplianceList();
 	private RepairPlanList repairPlans = new RepairPlanList();
 
 	public void addCustomer(String name, String address,int phone) {
@@ -20,10 +21,21 @@ public class ShopSystem {
 		System.out.print("the appliance id is:"+appliance.getApplianceID());
 	}
 	
-	public static void addToInventory(int applianceId, int amount) {
+	public void addToInventory(int applianceId, int amount) {
 		Appliance appliance = appliances.searchAppliances(applianceId);
 		int total = appliance.getQuantity() + amount;
 		appliance.setQuantity(total);
+	}
+	
+	public boolean addOrder(int size, Customer customer, Appliance appliance) {
+		double price = appliance.getPrice() * size;
+		if(appliance.getQuantity() >= size) {
+			appliance.setQuantity(appliance.getQuantity() - size);
+			Order order = new Order(price, size, customer, appliance);
+			orders.insertOrder(order);
+			return true;
+		}
+		return false;
 	}
 	
 	public void listAppliances() {
@@ -39,12 +51,7 @@ public class ShopSystem {
 		System.out.println("printing the appliance information");
 		System.out.println(appliances.searchAppliances(id));
 	}
-	
-	public void addOrder() {
 		
-	}
-	
-
 	public CustomerList getCustomers() {
 		return customers;
 	}
@@ -59,7 +66,6 @@ public class ShopSystem {
 
 	public RepairPlanList getRepairPlans(){
 		return repairPlans;
-	}
-
+	}	
 	
 }
