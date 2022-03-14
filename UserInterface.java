@@ -4,7 +4,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
-import java.util.Scanner;
 import java.util.*;
 
 public class UserInterface {
@@ -12,7 +11,16 @@ public class UserInterface {
 	ShopSystem shop;
 	
 	public static void main(String[] args) {
-		System.out.println("Appliance Shop Management System.");
+		UserInterface userInterface = new UserInterface();
+		try {
+		userInterface.run();
+		}catch(Exception e){
+			System.out.println(e.toString());
+		}
+	}
+	
+	public void run() throws NumberFormatException, IOException {
+		System.out.println("Welcome to the Appliance Shop Management System.");
 		while(true) {
 			/*This is the primary loop.
 			 * Every time the program returns here, it lists out a numbered list
@@ -21,7 +29,37 @@ public class UserInterface {
 			 * the corresponding method.
 			 * 
 			 */
+			System.out.println("What would you like to do?");
+			System.out.println("1. \tAdd a new model");
+			System.out.println("2. \tAdd a customer");
+			System.out.println("3. \tAdd to invetnroy");
+			System.out.println("4. \tBuy a model");
+			System.out.println("5. \tFulfill a backorder");
+			System.out.println("6. \tEnroll a customer in a repair plan");
+			System.out.println("7. \tWithdraw a customer from a repair plan");
+			System.out.println("8. \tCharge all repair plans");
+			System.out.println("9. \tPrint total revenue from all repair plans.");
+			System.out.println("10. \tList appliances");
+			System.out.println("11. \tList all users in repair plans");
+			System.out.println("12. \tList all users");
+			System.out.println("13. \tList all backorders");
+			System.out.println("14. \tSave");
+			System.out.println("15. \tQuit");
+		
+			int selection = Integer.parseInt( bufferedReader.readLine());
 			
+			switch(selection) {
+			case 1:
+				break;
+			case 2:
+				addCustomer();
+				break;
+			case 3:
+				addToInventory();
+				break;
+			case 4:
+				purchase();
+			}
 		}
 	}
 	
