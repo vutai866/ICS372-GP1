@@ -14,11 +14,13 @@ public class ShopSystem implements Serializable {
 	System.out.print("remenber it, your id is:"+customer.getCustomerID());
 	}
 	
-	public void addAppliance(String applianceName, String brandName, double price, int quantity){
-		Appliance appliance = new Appliance(applianceName, brandName, price, quantity);
-		appliances.insertAppliance(appliance);
-		System.out.println("added sucessfully");
-		System.out.print("the appliance id is:"+appliance.getApplianceID());
+	
+	public boolean addAppliance(Appliance appliance) {
+		if(appliances.insertAppliance(appliance)) {
+		return true;
+		}
+		else {
+		return false;}
 	}
 	
 	public void addToInventory(int applianceId, int amount) {
