@@ -26,24 +26,72 @@ public class UserInterface {
 	
 	public void addAppliance() {
 		try {
+			
+			System.out.println("what type of appliance do you wish to add?");
+			System.out.println("type 1 for washer");
+			System.out.println("type 2 for dryer");
+			System.out.println("type 3 for refrigerator");
+			System.out.println("type 4 for furnace");
+			int input = Integer.parseInt(bufferedReader.readLine());
+
 			System.out.println("what is the brand name of the appliance?");
 			String brandName = bufferedReader.readLine();
-			System.out.println("what is the brand name of the appliance?");
+			System.out.println("what is the model name of the appliance?");
 			String modelName = bufferedReader.readLine();
 			System.out.println("what is the price of the appliance");
 			int price = Integer.parseInt(bufferedReader.readLine());
 			System.out.println("what is the quantity of the appliance?");
 			int quantity = Integer.parseInt(bufferedReader.readLine());
-
-			Appliance appliance = new Appliance(modelName, brandName, price, quantity);
-			if(shop.addAppliance(appliance)) {
-				System.out.println("added sucessfully");
-				System.out.println("the appliance id is:" + appliance.getApplianceID());
+			Appliance appliance;
+			
+			if(input==1) {
+				System.out.println("what is the monthly repair cost?");
+				int monthlyRepairCost = Integer.parseInt(bufferedReader.readLine());
+				appliance = new Washer(modelName, brandName, price, quantity,monthlyRepairCost);
+				if (shop.addAppliance(appliance)) {
+					System.out.println("added sucessfully");
+					System.out.println("the appliance id is:" + appliance.getApplianceID());
+				} else {
+					System.out.println("added unsucessfully");
+				}
+			}
+			else if(input==2) {
+				System.out.println("what is the monthly repair cost?");
+				int monthlyRepairCost = Integer.parseInt(bufferedReader.readLine());
+				appliance = new Dryer(modelName, brandName, price, quantity,monthlyRepairCost);
+				if (shop.addAppliance(appliance)) {
+					System.out.println("added sucessfully");
+					System.out.println("the appliance id is:" + appliance.getApplianceID());
+				} else {
+					System.out.println("added unsucessfully");
+				}
+			}
+			else if(input==3) {
+				System.out.println("what is the capcity of the refridgerator?");
+				int capacity = Integer.parseInt(bufferedReader.readLine());
+				appliance = new Refrigerator(modelName, brandName, price, quantity,capacity);
+				if (shop.addAppliance(appliance)) {
+					System.out.println("added sucessfully");
+					System.out.println("the appliance id is:" + appliance.getApplianceID());
+				} else {
+					System.out.println("added unsucessfully");
+				}
+			
+			}
+			else if(input==4) {
+				System.out.println("what is the heat output?");
+				int heatOutPut = Integer.parseInt(bufferedReader.readLine());
+				appliance = new Furnace(modelName, brandName, price, quantity,heatOutPut);
+				if (shop.addAppliance(appliance)) {
+					System.out.println("added sucessfully");
+					System.out.println("the appliance id is:" + appliance.getApplianceID());
+				} else {
+					System.out.println("added unsucessfully");
+				}
 			}
 			else {
-				System.out.println("added unsucessfully");
+				System.out.print("you did not type a number between 1 and 4");
 			}
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
