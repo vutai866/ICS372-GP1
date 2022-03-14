@@ -24,6 +24,30 @@ public class UserInterface {
 		}
 	}
 	
+	public void addAppliance() {
+		try {
+			System.out.println("what is the brand name of the appliance?");
+			String brandName = bufferedReader.readLine();
+			System.out.println("what is the brand name of the appliance?");
+			String modelName = bufferedReader.readLine();
+			System.out.println("what is the price of the appliance");
+			int price = Integer.parseInt(bufferedReader.readLine());
+			System.out.println("what is the quantity of the appliance?");
+			int quantity = Integer.parseInt(bufferedReader.readLine());
+
+			Appliance appliance = new Appliance(modelName, brandName, price, quantity);
+			if(shop.addAppliance(appliance)) {
+				System.out.println("added sucessfully");
+				System.out.println("the appliance id is:" + appliance.getApplianceID());
+			}
+			else {
+				System.out.println("added unsucessfully");
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	public void purchase() {
