@@ -24,6 +24,29 @@ public class UserInterface {
 		}
 	}
 	
+	public void listAppliance() {
+		
+		try {
+		System.out.println("press one if you want to list all appliance"
+				+ "press two if you want to print a specific appliance");
+	
+			int input = Integer.parseInt(bufferedReader.readLine());
+			
+			if(input == 1) {
+				shop.listAppliances();
+			}
+			else if(input == 2) {
+				System.out.println("what is the appliance id of the appliance you wish to look at?");
+				int id = Integer.parseInt(bufferedReader.readLine());
+				shop.listAppliance(id);
+			}
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public void addAppliance() {
 		try {
 			System.out.println("what is the brand name of the appliance?");
