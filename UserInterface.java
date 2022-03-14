@@ -48,7 +48,43 @@ public class UserInterface {
 			e.printStackTrace();
 		}
 	}
-	
+	public void addToInventory() {
+
+		try {
+			System.out.println("enter appliance id");
+			int id = Integer.parseInt(bufferedReader.readLine());
+			System.out.println("enter amount you wish to add to inventory");
+			int amount = Integer.parseInt(bufferedReader.readLine());
+
+			shop.addToInventory(id, amount);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	};
+
+	public void addCustomer() {
+		try {
+			System.out.println("enter the customer name");
+			String name = bufferedReader.readLine();
+			System.out.println("enter the customer address");
+			String address = bufferedReader.readLine();
+			System.out.println("enter the customer phone number");
+			int phoneNumber = Integer.parseInt(bufferedReader.readLine());
+
+			Customer customer = new Customer(name, address, phoneNumber);
+
+			if (shop.addCustomer(customer)) {
+				System.out.println("added successfully");
+				System.out.println("the customer id is:" + customer.getCustomerID());
+			} else {
+				System.out.println("added unsucessfully");
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	};
 	
 	public void purchase() {
 		try {
