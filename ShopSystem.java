@@ -7,13 +7,13 @@ public class ShopSystem implements Serializable {
 	private ApplianceList appliances = new ApplianceList();
 	private RepairPlanList repairPlans = new RepairPlanList();
 
-	public void addCustomer(String name, String address,int phone) {
-	Customer customer = new Customer(name, address, phone);
-	customers.insertCustomer(customer);
-	System.out.println("added sucessfully");
-	System.out.print("remenber it, your id is:"+customer.getCustomerID());
+	public boolean addCustomer(Customer customer) {
+		if(customers.insertCustomer(customer)) {
+		return true;
+		}
+		else{return false;
+		}
 	}
-	
 	
 	public boolean addAppliance(Appliance appliance) {
 		if(appliances.insertAppliance(appliance)) {
