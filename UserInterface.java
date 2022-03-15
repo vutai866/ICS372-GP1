@@ -90,7 +90,7 @@ public class UserInterface {
 	}
 	
 	public void listUsers() {
-		System.out.println("Listing all users: ");
+		System.out.println("Getting read to print all User information");
 		shop.listUsers();
 	}
 	public void listAppliance() {

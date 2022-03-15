@@ -61,7 +61,7 @@ public class ShopSystem implements Serializable {
 	}
 	public void listUsers() {
 		Iterator<Customer> customerIterator = customers.iterator();
-		System.out.println("printing all customer information");
+		System.out.println("printing all User information");
 		while (customerIterator.hasNext()) {
 			Customer customer = customerIterator.next();
 			System.out.println(customer);
