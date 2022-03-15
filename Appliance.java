@@ -46,5 +46,10 @@ public class Appliance {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	public String toString() {
+		return "Appliance [applianceID=" + applianceID + ", modelName=" + modelName + ", brandName=" + brandName
+				+ ", price=" + price + ", quantity=" + quantity + "]";
+	}
+
 
 }
