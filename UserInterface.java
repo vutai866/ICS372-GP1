@@ -163,7 +163,7 @@ public class UserInterface {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	};
+	}
 	
 	public void purchase() {
 		try {
@@ -177,19 +177,31 @@ public class UserInterface {
 			if(shop.addOrder(quantity, customer, appliance)) {
 				System.out.println("Order created sucessfully");
 				return;
-			}else {
+			}else if(appliance instanceof Furnace) {
+				System.out.println("Quantity exceeds inventory. Furnaces can not be backordered");
+			}else{
 				//This part relies on other things not yet finished.
-				System.out.println("Quantity exceeds inventory. Would you like to create a backorder (y/n) ?");
+				System.out.println("Quantity exceeds inventory. Would you like to partialy fill the order and backorder the remainder (y/n) ?");
 				String answer = bufferedReader.readLine();
 				answer = answer.toLowerCase();
 				if(answer.equals("y")) {
-					
+					int backorderQuantity = quantity - appliance.getQuantity();
+					quantity = appliance.getQuantity();
+					shop.addOrder(quantity, customer, appliance);
+					shop.addBackorder(backorderQuantity, customer, appliance);	
 				}
 			}	
 		}catch(Exception e) {
 			System.out.println("invalid input");
 			return;
 		}
+	}
+	
+	public void fulfillBackorder() throws NumberFormatException, IOException {
+		System.out.println("Input desired backorderID");
+		int backorderID = Integer.parseInt( bufferedReader.readLine());
+		shop.fulfillBackorder(backorderID);
+		
 	}
 	
 	public void Save() {
