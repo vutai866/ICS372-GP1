@@ -4,7 +4,7 @@ public class Customer {
     private int customerID;
     private String customerName;
     private String customerAddress;
-    private int customerPhoneNumber;
+    private long customerPhoneNumber;
 	public int getCustomerID() {
 		return customerID;
 	}
@@ -23,16 +23,16 @@ public class Customer {
 	public void setCustomerAddress(String customerAddress) {
 		this.customerAddress = customerAddress;
 	}
-	public int getCustomerPhoneNumber() {
+	public long getCustomerPhoneNumber() {
 		return customerPhoneNumber;
 	}
-	public void setCustomerPhoneNumber(int customerPhoneNumber) {
+	public void setCustomerPhoneNumber(long customerPhoneNumber) {
 		this.customerPhoneNumber = customerPhoneNumber;
 	}
 
    //* 
     public Customer(String customerName, String customerAddress,
-     int customerPhoneNumber) {
+     long customerPhoneNumber) {
 	/* 
 	the system is suppose to generate a id when a customer is created
 	generate a 9 digit id
