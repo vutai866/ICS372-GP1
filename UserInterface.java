@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -59,6 +58,24 @@ public class UserInterface {
 				break;
 			case 4:
 				purchase();
+				break;
+			case 5:
+				fulfillBackorder();
+				break;
+			case 6: 
+				enrollCustomer();
+				break;
+			case 7:
+				withdrawCustomer();
+				break;
+			case 8:
+				chargeAllRepairPlans();
+				break;
+			case 9:
+				printTotalRevenue();
+				break;
+			default: 
+				break;
 			}
 		}
 	}
@@ -175,11 +192,38 @@ public class UserInterface {
 			FileOutputStream file = new FileOutputStream("storeData");
 			ObjectOutputStream out = new ObjectOutputStream(file);
 			out.writeObject(shop);
+			// Need to close ObjectOutputStream out
+			// out.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.toString());
 			e.printStackTrace();
 		}
 	}
+
+	public void enrollCustomer(){
+		try {
+			System.out.println("Input desired Customer ID");
+			int customerID = Integer.parseInt( bufferedReader.readLine());
+			Customer customer = shop.getCustomers().searchCustomers(customerID);
+			System.out.println("Input desired Appliance ID");
+			int applianceID = Integer.parseInt( bufferedReader.readLine());
+			Appliance appliance = shop.getAppliances().searchAppliances(applianceID);
+			System.out.println("Input desired Repair Type ( 1:Full-covered, 2:Limited-covered, or 3:None)");
+			int repairType = Integer.parseInt( bufferedReader.readLine());
+			RepairPlan repairPlan = shop.getRepairPlans().searchRepairPlan(repairType);
+
+			if(shop.addRepairPlan(customer, appliance, repairPlan)) {
+				System.out.println("Customer enrolled sucessfully");
+				return;
+			}else {
+				//This part relies on other things not yet finished.
+				System.out.println("Customer already enrolled");
+			}	
+		}catch(Exception e) {
+			System.out.println("invalid input");
+			return;
+		}
+	}// end void enrollCustomer
 
 }
