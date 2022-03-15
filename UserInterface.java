@@ -149,7 +149,7 @@ public class UserInterface {
 			System.out.println("enter the customer address");
 			String address = bufferedReader.readLine();
 			System.out.println("enter the customer phone number");
-			int phoneNumber = Integer.parseInt(bufferedReader.readLine());
+			long phoneNumber = Long.parseLong(bufferedReader.readLine());
 
 			Customer customer = new Customer(name, address, phoneNumber);
 
