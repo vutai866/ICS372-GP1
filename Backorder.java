@@ -5,5 +5,10 @@ public class Backorder extends Order {
 		super(orderPrice, quantity, orderCustomer, setAppliance);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Order fulfilled() {
+		Order order = new Order(super.getOrderPrice(),super.getQuantity(),super.getBuyer(),super.getAppliance());
+		return order;
+	}
 
 }

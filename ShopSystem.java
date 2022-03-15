@@ -17,10 +17,11 @@ public class ShopSystem implements Serializable {
 	
 	public boolean addAppliance(Appliance appliance) {
 		if(appliances.insertAppliance(appliance)) {
-		return true;
+			return true;
 		}
 		else {
-		return false;}
+			return false;
+		}
 	}
 	
 	public void addToInventory(int applianceId, int amount) {
@@ -36,6 +37,21 @@ public class ShopSystem implements Serializable {
 			Order order = new Order(price, size, customer, appliance);
 			orders.insertOrder(order);
 			return true;
+		}
+		return false;
+	}
+	
+	public void addBackorder(int size, Customer customer, Appliance appliance) {
+		orders.insertOrder(new Backorder(appliance.getPrice(), size, customer, appliance));
+	}
+	
+	public boolean fulfillBackorder(int id) {
+		Order order = orders.searchOrders(id);
+		if(order instanceof Backorder) {
+			if(addOrder(order.getQuantity(),order.getBuyer(),order.getAppliance())) {
+				orders.removeOrder(id);
+				return true;
+			}
 		}
 		return false;
 	}

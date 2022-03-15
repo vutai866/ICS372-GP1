@@ -10,6 +10,15 @@ private List<Order> orders = new ArrayList<>();
 		return true;
 	}
 	
+	public void removeOrder(int orderID) {
+		for(int i = 0; i < orders.size(); i++) {
+			if(orders.get(i).getOrderID() == orderID) {
+				orders.remove(i);
+				return;
+			}
+		}
+	}
+	
 	public Order searchOrders(int orderID) {
 		Iterator<Order> orderIterator = orders.iterator();
 		while(orderIterator.hasNext()) {
