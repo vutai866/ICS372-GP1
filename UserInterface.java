@@ -59,9 +59,9 @@ public class UserInterface {
 			case 4:
 				purchase();
 				break;
-			case 5:
-				fulfillBackorder();
-				break;
+//			case 5:
+//				fulfillBackorder();
+//				break;
 			case 6: 
 				enrollCustomer();
 				break;
@@ -74,12 +74,25 @@ public class UserInterface {
 			case 9:
 				printTotalRevenue();
 				break;
+//			case 11:
+//				listEnrolledUsers();
+//				break;
+			case 12:
+				listUsers();
+				break;
+//			case 13:
+//				listBackorders();
+//				break;
 			default: 
 				break;
 			}
 		}
 	}
 	
+	public void listUsers() {
+		System.out.println("Listing all users: ");
+		shop.listUsers();
+	}
 	public void listAppliance() {
 		
 		try {
