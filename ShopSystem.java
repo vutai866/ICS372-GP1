@@ -39,6 +39,17 @@ public class ShopSystem implements Serializable {
 		}
 		return false;
 	}
+
+	public boolean addRepairPlan(Customer customer, Appliance appliance, int repairType){
+		// Default value of repair Cost is 0
+		double repairCost = 0;
+		if (repairPlans.getRepairPlans() == null){
+			RepairPlan plan = new RepairPlan(customer, appliance, repairType, repairCost);
+			repairPlans.insertRepairPlan(plan);
+		}
+		return false;
+	
+	}
 	
 	public void listAppliances() {
 		Iterator<Appliance> applianceIterator = appliances.iterator();
@@ -68,6 +79,10 @@ public class ShopSystem implements Serializable {
 
 	public RepairPlanList getRepairPlans(){
 		return repairPlans;
-	}	
+	}
+
+	public void setRepairPlans(RepairPlanList newRepairPlan){
+		this.repairPlans = newRepairPlan;
+	}
 	
 }

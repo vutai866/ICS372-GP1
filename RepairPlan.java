@@ -1,16 +1,14 @@
 
 public class RepairPlan{
 	private int planID;
-    private String repairPlanType;
-    private boolean hasRepairPlan;
+    private int repairPlanType;
     private double repairCost;
     private Customer CustomerID;
     private Appliance applianceID;
 
-    public RepairPlan(Customer CustomerID, Appliance applianceID, boolean hasRepairPlan, String repairPlanType, double repairCost){
+    public RepairPlan(Customer CustomerID, Appliance applianceID, int repairPlanType, double repairCost){
         this.setCustomerRepairID(CustomerID);
         this.setApplianceRepairID(applianceID);
-        this.setHasRepairPlan(hasRepairPlan);
         this.setRepairPlanType(repairPlanType);
         this.setRepairCost(repairCost);
     }// end public RepairPlan
@@ -34,7 +32,7 @@ public class RepairPlan{
 
 
     // Incase that need to change Repair Plan Type 
-    public void setRepairPlanType(String newPlanType){
+    public void setRepairPlanType(int newPlanType){
         setPlanType(newPlanType);
     }// end setRepairPlanType  
 
@@ -42,25 +40,17 @@ public class RepairPlan{
         setRepairCost(newRepairCost);
     }
 
-    public void setPlanType(String repairPlanType){
+    public void setPlanType(int repairPlanType){
         this.repairPlanType = repairPlanType;
     }// end setPlanType
-
-    public void setHasRepairPlan(boolean hasRepairPlan){
-        this.hasRepairPlan = hasRepairPlan;
-    }// end setHasRepairPlan
 
     public void setRepairCost(double repairCost){
         this.repairCost = repairCost;
     }// end setRepairCost
 
-    public String getRepairPlanType(){
+    public int getRepairPlanType(){
         return repairPlanType;
     }// end getRepairPlanType
-
-    public boolean getHasRepairPlan(){
-        return hasRepairPlan;
-    }// end getHasRepairPlan
 
     public double getRepairCost(){
         return repairCost;
