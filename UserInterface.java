@@ -162,7 +162,12 @@ public class UserInterface {
 				return;
 			}else {
 				//This part relies on other things not yet finished.
-				System.out.println("Quantity exceeds inventory. Try creating a backorder ");
+				System.out.println("Quantity exceeds inventory. Would you like to create a backorder (y/n) ?");
+				String answer = bufferedReader.readLine();
+				answer = answer.toLowerCase();
+				if(answer.equals("y")) {
+					
+				}
 			}	
 		}catch(Exception e) {
 			System.out.println("invalid input");
