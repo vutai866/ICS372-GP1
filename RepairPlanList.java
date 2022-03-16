@@ -8,7 +8,25 @@ public class RepairPlanList implements Iterable<RepairPlan>{
     public boolean insertRepairPlan(RepairPlan RepairPlan){
         repairPlans.add(RepairPlan);
         return true;
-    }
+    }// end boolean insertRepairPlan
+
+    public void removeRepairPlan(Customer customer, Appliance appliance){
+        for (int i = 0; i < repairPlans.size(); i++) {
+            if (repairPlans.get(i).getCustomerID() == customer && repairPlans.get(i).getApplianceID() == appliance) {
+                repairPlans.remove(i);
+                return;
+            }
+        }
+    }// end removeRepairPlan
+
+    public void repairCost(Customer customer, Appliance appliance){
+        for (int i = 0; i < repairPlans.size(); i++) {
+            if (repairPlans.get(i).getCustomerID() == customer && repairPlans.get(i).getApplianceID() == appliance) {
+                repairPlans.get(i).setRepairCost(repairPlans.get(i).getRepairCost() + repairPlans.get(i).getRepairCost() * 0.1);
+                return;
+            }
+        }
+    }// end hasRepairBalance
     
     public RepairPlan searchRepairPlan(int repairPlanID){
 		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
