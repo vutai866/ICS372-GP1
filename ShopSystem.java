@@ -4,7 +4,6 @@ import java.util.Iterator;
 public class ShopSystem implements Serializable {
 	private CustomerList customers = new CustomerList();
 	private OrderList orders = new OrderList();
-	private BackorderList backorders = new BackorderList();
 	private ApplianceList appliances = new ApplianceList();
 	private RepairPlanList repairPlans = new RepairPlanList();
 
@@ -111,7 +110,7 @@ public class ShopSystem implements Serializable {
 		
 	}
 
-	public void listBackorder() {
+	public void listBackorders() {
 		Iterator<Order> orderIterator = orders.iterator();
 		System.out.println("printing all Backorders");
 		while (orderIterator.hasNext()) {
