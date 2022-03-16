@@ -47,7 +47,7 @@ public class Appliance {
 		this.quantity = quantity;
 	}
 	public String toString() {
-		return "Appliance [applianceID=" + applianceID + ", modelName=" + modelName + ", brandName=" + brandName
+		return "Appliance [applianceID=" + applianceID + ", applianceName=" + applianceName + ", brandName=" + brandName
 				+ ", price=" + price + ", quantity=" + quantity + "]";
 	}
 
