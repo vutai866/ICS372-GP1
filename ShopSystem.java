@@ -4,6 +4,7 @@ import java.util.Iterator;
 public class ShopSystem implements Serializable {
 	private CustomerList customers = new CustomerList();
 	private OrderList orders = new OrderList();
+	private BackorderList backorders = new BackorderList();
 	private ApplianceList appliances = new ApplianceList();
 	private RepairPlanList repairPlans = new RepairPlanList();
 
@@ -100,7 +101,24 @@ public class ShopSystem implements Serializable {
 			System.out.println(customer);
 		}
 	}
-
+	public void listEnrolledUsers() {
+		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
+		System.out.println("printing all Users in repair plans");
+		while (repairPlanIterator.hasNext()) {
+			RepairPlan repairPlan = repairPlanIterator.next();
+			System.out.println(repairPlan);
+		}
+		
+	}
+	public void listBackorders() {
+		Iterator<Backorder> backorderIterator = backorders.iterator();
+		System.out.println("printing all Backorders");
+		while (backorderIterator.hasNext()) {
+			Backorder backorder = backorderIterator.next();
+			System.out.println(backorder);
+		}
+		
+	}
 	public void listAppliance(int id) {
 		System.out.println("printing the appliance information");
 		System.out.println(appliances.searchAppliances(id));

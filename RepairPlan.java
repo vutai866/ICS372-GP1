@@ -74,5 +74,11 @@ public class RepairPlan{
         return this.repairCost;
     }// end repairCost
     
+    public String toString(){
+        return "Customer Name: " + CustomerID.getCustomerName() + "\nCustomer Address: " + CustomerID.getCustomerAddress() + 
+            "\nCustomer Phone Number: " + CustomerID.getCustomerPhoneNumber() + "\nAppliance Brand: " + applianceID.getBrandName()
+            + "\nAppliance Model: " + applianceID.getApplianceName();
+    }// end public String toString()
+    
 }// end RepairPlan class
 

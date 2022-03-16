@@ -78,15 +78,15 @@ public class UserInterface {
 			case 10:
 				listAppliance();
 				break;
-//			case 11:
-//				listEnrolledUsers();
-//				break;
+			case 11:
+				listEnrolledUsers();
+				break;
 			case 12:
 				listUsers();
 				break;
-//			case 13:
-//				listBackorders();
-//				break;
+			case 13:
+				listBackorders();
+				break;
 			default: 
 				break;
 			}
@@ -96,6 +96,14 @@ public class UserInterface {
 	public void listUsers() {
 		System.out.println("Getting read to print all User information");
 		shop.listUsers();
+	}
+	public void listEnrolledUsers() {
+		System.out.println("Getting read to print all Users in repair plans");
+		shop.listEnrolledUsers();
+	}
+	public void listBackorders() {
+		System.out.println("Getting read to print all Backorders");
+		shop.listBackorders();
 	}
 	public void listAppliance() {
 		

@@ -47,6 +47,8 @@ public class Customer {
         return "Customer ID: " + customerID + "\nCustomer Name: " + customerName + 
             "\nCustomer Address: " + customerAddress + "\nCustomer Phone Number: " + 
             customerPhoneNumber;
+        
+//        + " Has service plan: "  ;
     }// end public String toString()
 	//*/
 

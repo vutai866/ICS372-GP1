@@ -10,5 +10,10 @@ public class Backorder extends Order {
 		Order order = new Order(super.getOrderPrice(),super.getQuantity(),super.getBuyer(),super.getAppliance());
 		return order;
 	}
+	  public String toString(){
+	        return " Applaince Brand: " + getAppliance().getBrandName() + "\nAppliance Model: " + getAppliance().getBrandName()+ 
+	            "\nCustomer Name: " + getBuyer().getCustomerPhoneNumber() + "\nCustomer ID: " + getBuyer().getCustomerID()
+	            + "\nQuantity: " + getQuantity();
+	  }
 
 }
