@@ -72,9 +72,9 @@ public class UserInterface {
 			case 8:
 				chargeAllRepairPlans();
 				break;
-			case 9:
-				printTotalRevenue();
-				break;
+			// case 9:
+			// 	printTotalRevenue();
+			// 	break;
 			case 10:
 				listAppliance();
 				break;
@@ -269,7 +269,7 @@ public class UserInterface {
 			ObjectOutputStream out = new ObjectOutputStream(file);
 			out.writeObject(shop);
 			// Need to close ObjectOutputStream out
-			// out.close();
+			out.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.toString());
