@@ -344,8 +344,16 @@ public class UserInterface {
 
 			if(shop.hasRepairBalance(customer, appliance)) {
 				System.out.println("Repair Cost for " + customer + " is: " + shop.repairCost(customer, appliance));
+				System.out.println("Enter payment amount: ");
+				double payment = Double.parseDouble( bufferedReader.readLine());
+				// RepairPlan repairCost = shop.getRepairCost().searchRepairPlan(RepairPlan.getPlanID());
+				// if(payment != 0) {
+				// 	shop.chargeRepairPlan(customer, payment);
+				// 	System.out.println("Repair plan charged sucessfully");
+				// 	return;
+				// }
+				// Still working on this 
 
-				System.out.println("Customer charged sucessfully");
 				return;
 			}else {
 				//This part relies on other things not yet finished.

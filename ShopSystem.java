@@ -84,6 +84,10 @@ public class ShopSystem implements Serializable {
 	 public RepairPlan repairCost(Customer customer, Appliance appliance){
 		return repairCost(customer, appliance);
 	 }// end repairCost
+
+	 public void chargeRepairPlan(Customer customer, double payment){
+		return chargeRepairPlan(customer, payment);
+	 }// end chargeRepairPlan
 	
 	public void listAppliances() {
 		Iterator<Appliance> applianceIterator = appliances.iterator();
