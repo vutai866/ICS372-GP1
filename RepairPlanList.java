@@ -4,6 +4,7 @@ import java.util.List;
 
 public class RepairPlanList implements Iterable<RepairPlan>{
     private List<RepairPlan> repairPlans = new ArrayList<>();
+    private List<RepairPlan> repairPayment = new ArrayList<>();
 
     public boolean insertRepairPlan(RepairPlan RepairPlan){
         repairPlans.add(RepairPlan);
@@ -27,6 +28,18 @@ public class RepairPlanList implements Iterable<RepairPlan>{
             }
         }
     }// end hasRepairBalance
+
+    public double chargeRepairPlan(Customer customer, double payment){
+        for (int i = 0; i < repairPlans.size(); i++) {
+            if (repairPlans.get(i).getCustomerID() == customer) {
+                repairPlans.get(i).setRepairCost(repairPlans.get(i).getRepairCost() - payment);
+                repairPayment.add(repairPlans.get(i));
+                repairPlans.remove(i);
+                return payment;
+            }
+        }
+        return 0;
+    }// end chargeRepairPlan
     
     public RepairPlan searchRepairPlan(int repairPlanID){
 		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
@@ -41,6 +54,10 @@ public class RepairPlanList implements Iterable<RepairPlan>{
 
     public List<RepairPlan> getRepairPlans() {
         return repairPlans;
+    }
+
+    public List<RepairPlan> getTotalCost(){
+        return repairPayment;
     }
 
     @Override
