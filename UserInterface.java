@@ -31,7 +31,7 @@ public class UserInterface {
 			System.out.println("What would you like to do?");
 			System.out.println("1. \tAdd a new model");
 			System.out.println("2. \tAdd a customer");
-			System.out.println("3. \tAdd to invetnroy");
+			System.out.println("3. \tAdd to inventory");
 			System.out.println("4. \tBuy a model");
 			System.out.println("5. \tFulfill a backorder");
 			System.out.println("6. \tEnroll a customer in a repair plan");
@@ -287,9 +287,10 @@ public class UserInterface {
 			Appliance appliance = shop.getAppliances().searchAppliances(applianceID);
 			System.out.println("Input desired Repair Type ( 1:Full-covered, 2:Limited-covered, or 3:None)");
 			int repairType = Integer.parseInt( bufferedReader.readLine());
-			RepairPlan repairPlan = shop.getRepairPlans().searchRepairPlan(repairType);
 
-			if(shop.addRepairPlan(customer, appliance, repairPlan)) {
+			double repairCost = 0;
+
+			if(shop.addRepairPlan(customer, appliance, repairType, repairCost)) {
 				System.out.println("Customer enrolled sucessfully");
 				return;
 			}else {
@@ -301,5 +302,52 @@ public class UserInterface {
 			return;
 		}
 	}// end void enrollCustomer
+
+	public void withdrawCustomer(){
+		try {
+			System.out.println("Input desired Customer ID");
+			int customerID = Integer.parseInt( bufferedReader.readLine());
+			Customer customer = shop.getCustomers().searchCustomers(customerID);
+			System.out.println("Input desired Appliance ID");
+			int applianceID = Integer.parseInt( bufferedReader.readLine());
+			Appliance appliance = shop.getAppliances().searchAppliances(applianceID);
+			if(shop.removeRepairPlan(customer, appliance)) {
+				System.out.println("Customer withdrawn sucessfully");
+				return;
+			}else {
+				//This part relies on other things not yet finished.
+				System.out.println("Customer not enrolled for repair plan");
+			}
+
+		} catch(Exception e) {
+			System.out.println("invalid input");
+			return;
+		}
+	}// end void withdrawCustomer
+
+	public void chargeAllRepairPlans(){
+		try {
+			System.out.println("Input desired Customer ID");
+			int customerID = Integer.parseInt( bufferedReader.readLine());
+			Customer customer = shop.getCustomers().searchCustomers(customerID);
+			System.out.println("Input desired Appliance ID");
+			int applianceID = Integer.parseInt( bufferedReader.readLine());
+			Appliance appliance = shop.getAppliances().searchAppliances(applianceID);
+
+			if(shop.hasRepairBalance(customer, appliance)) {
+				System.out.println("Repair Cost for " + customer + " is: " + shop.repairCost(customer, appliance));
+
+				System.out.println("Customer charged sucessfully");
+				return;
+			}else {
+				//This part relies on other things not yet finished.
+				System.out.println("Customer not enrolled for repair plan");
+			}
+
+		} catch(Exception e) {
+			System.out.println("invalid input");
+			return;
+		}
+	}// end void chargeAllRepairPlans
 
 }
