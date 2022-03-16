@@ -94,15 +94,15 @@ public class UserInterface {
 	}
 	
 	public void listUsers() {
-		System.out.println("Getting read to print all User information");
+		System.out.println("Getting ready to print all User information");
 		shop.listUsers();
 	}
 	public void listEnrolledUsers() {
-		System.out.println("Getting read to print all Users in repair plans");
+		System.out.println("Getting ready to print all Users in repair plans");
 		shop.listEnrolledUsers();
 	}
 	public void listBackorders() {
-		System.out.println("Getting read to print all Backorders");
+		System.out.println("Getting ready to print all Backorders");
 		shop.listBackorders();
 	}
 	public void listAppliance() {
