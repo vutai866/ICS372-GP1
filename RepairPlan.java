@@ -64,5 +64,15 @@ public class RepairPlan{
 		this.planID = planID;
 	}
 
+    public void removeRepairPlan(Customer customer, Appliance appliance){
+        this.repairPlanType = 0;
+        this.repairCost = 0;
+    }// end removeRepairPlan
+
+    public double repairCost(Customer customer, Appliance appliance){
+        this.repairCost = this.repairCost + this.repairCost * 0.1;
+        return this.repairCost;
+    }// end repairCost
+    
 }// end RepairPlan class
 
