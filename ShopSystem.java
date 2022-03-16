@@ -56,16 +56,33 @@ public class ShopSystem implements Serializable {
 		return false;
 	}
 
-	public boolean addRepairPlan(Customer customer, Appliance appliance, int repairType){
-		// Default value of repair Cost is 0
-		double repairCost = 0;
+	public boolean addRepairPlan(Customer customer, Appliance appliance, int repairType, double repairCost){
 		if (repairPlans.getRepairPlans() == null){
 			RepairPlan plan = new RepairPlan(customer, appliance, repairType, repairCost);
 			repairPlans.insertRepairPlan(plan);
 		}
 		return false;
-	
-	}
+	} // end boolean addRepairPlan
+
+	public boolean removeRepairPlan(Customer customer, Appliance appliance){
+		if (repairPlans.getRepairPlans() != null){
+			repairPlans.removeRepairPlan(customer, appliance);
+			return true;
+		}
+		return false;
+	} // end boolean removeRepairPlan
+
+	public boolean hasRepairBalance(Customer customer, Appliance appliance){
+		if (repairPlans.getRepairPlans() != null){
+			repairPlans.repairCost(customer, appliance);
+			return true;
+		}
+		return false;
+ 	} // end boolean hasRepairBalance
+
+	 public RepairPlan repairCost(Customer customer, Appliance appliance){
+		return repairCost(customer, appliance);
+	 }// end repairCost
 	
 	public void listAppliances() {
 		Iterator<Appliance> applianceIterator = appliances.iterator();
