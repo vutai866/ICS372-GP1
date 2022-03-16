@@ -84,10 +84,6 @@ public class ShopSystem implements Serializable {
 	 public RepairPlan repairCost(Customer customer, Appliance appliance){
 		return repairCost(customer, appliance);
 	 }// end repairCost
-
-	 public void chargeRepairPlan(Customer customer, double payment){
-		return chargeRepairPlan(customer, payment);
-	 }// end chargeRepairPlan
 	
 	public void listAppliances() {
 		Iterator<Appliance> applianceIterator = appliances.iterator();
@@ -114,15 +110,19 @@ public class ShopSystem implements Serializable {
 		}
 		
 	}
-	public void listBackorders() {
-		Iterator<Backorder> backorderIterator = backorders.iterator();
+
+	public void listBackorder() {
+		Iterator<Order> orderIterator = orders.iterator();
 		System.out.println("printing all Backorders");
-		while (backorderIterator.hasNext()) {
-			Backorder backorder = backorderIterator.next();
-			System.out.println(backorder);
+		while (orderIterator.hasNext()) {
+			Order order = orderIterator.next();
+			if (order instanceof Backorder) {
+				System.out.println(order);
+			}
 		}
 		
 	}
+	
 	public void listAppliance(int id) {
 		System.out.println("printing the appliance information");
 		System.out.println(appliances.searchAppliances(id));
