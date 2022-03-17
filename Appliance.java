@@ -7,13 +7,13 @@ public class Appliance {
 	private double price;
 	private int quantity;
 	
-	public Appliance( String applianceName, String brandName, double price, int quantity) {
+	public Appliance( String applianceName, String brandName, double price) {
 		// like customer appliance also generate a new id when it created
 		this.applianceID = new Random().nextInt(999999999);
 		this.applianceName = applianceName;
 		this.brandName = brandName;
 		this.price = price;
-		this.quantity = quantity;
+		this.quantity = 0;
 	}
 	
 	public int getApplianceID() {
