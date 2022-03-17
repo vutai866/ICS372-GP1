@@ -2,15 +2,15 @@
 public class RepairPlan{
 	private int planID;
     private int repairPlanType;
-    private double repairCost;
+    private double repairBalance;
     private Customer CustomerID;
     private Appliance applianceID;
 
-    public RepairPlan(Customer CustomerID, Appliance applianceID, int repairPlanType, double repairCost){
+    public RepairPlan(Customer CustomerID, Appliance applianceID, int repairPlanType, double repairBalance){
         this.setCustomerRepairID(CustomerID);
         this.setApplianceRepairID(applianceID);
         this.setRepairPlanType(repairPlanType);
-        this.setRepairCost(repairCost);
+        this.setRepairBalance(repairBalance);
     }// end public RepairPlan
 
     public Customer getCustomerID(){
@@ -36,25 +36,25 @@ public class RepairPlan{
         setPlanType(newPlanType);
     }// end setRepairPlanType  
 
-    public void changeNewRepairCost(double newRepairCost){
-        setRepairCost(newRepairCost);
+    public void changeNewRepairBalance(double newRepairBalance){
+        setRepairBalance(newRepairBalance);
     }
 
     public void setPlanType(int repairPlanType){
         this.repairPlanType = repairPlanType;
     }// end setPlanType
 
-    public void setRepairCost(double repairCost){
-        this.repairCost = repairCost;
-    }// end setRepairCost
+    public void setRepairBalance(double repairBalance){
+        this.repairBalance = repairBalance;
+    }// end setRepairBalance
 
     public int getRepairPlanType(){
         return repairPlanType;
     }// end getRepairPlanType
 
-    public double getRepairCost(){
-        return repairCost;
-    }//end getRepairCost
+    public double getRepairBalance(){
+        return repairBalance;
+    }//end getRepairBalance
 
 	public int getPlanID() {
 		return planID;
@@ -66,13 +66,13 @@ public class RepairPlan{
 
     public void removeRepairPlan(Customer customer, Appliance appliance){
         this.repairPlanType = 0;
-        this.repairCost = 0;
+        this.repairBalance = 0;
     }// end removeRepairPlan
 
-    public double repairCost(Customer customer, Appliance appliance){
-        this.repairCost = this.repairCost + this.repairCost * 0.1;
-        return this.repairCost;
-    }// end repairCost
+    public double repairBalance(Customer customer, Appliance appliance){
+        this.repairBalance = this.repairBalance + this.repairBalance * 0.1;
+        return this.repairBalance;
+    }// end repairBalance
     
     public String toString(){
         return "Customer Name: " + CustomerID.getCustomerName() + "\nCustomer Address: " + CustomerID.getCustomerAddress() + 
