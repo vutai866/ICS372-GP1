@@ -150,13 +150,11 @@ public class UserInterface {
 				String modelName = bufferedReader.readLine();
 				System.out.println("what is the price of the appliance");
 				int price = Integer.parseInt(bufferedReader.readLine());
-				System.out.println("what is the quantity of the appliance?");
-				int quantity = Integer.parseInt(bufferedReader.readLine());
 				Appliance appliance;
 				if (input == 1) {
 					System.out.println("what is the monthly repair cost?");
 					int monthlyRepairCost = Integer.parseInt(bufferedReader.readLine());
-					appliance = new Washer(modelName, brandName, price, quantity, monthlyRepairCost);
+					appliance = new Washer(modelName, brandName, price, monthlyRepairCost);
 					if (shop.addAppliance(appliance)) {
 						System.out.println("added sucessfully");
 						System.out.println("the appliance id is:" + appliance.getApplianceID());
