@@ -6,6 +6,19 @@ public class RepairPlanList implements Iterable<RepairPlan>{
     private List<RepairPlan> repairPlans = new ArrayList<>();
     private List<RepairPlan> repairPayment = new ArrayList<>();
 
+    public RepairPlan searchRepairBalance(Customer customer, Appliance appliance) {
+        Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
+        while(repairPlanIterator.hasNext()) {
+            RepairPlan targetRepairPlan  = repairPlanIterator.next();
+            if(targetRepairPlan.getCustomerID() == customer && 
+             targetRepairPlan.getApplianceID() == appliance) {
+                return targetRepairPlan;
+            }
+        }
+        return null;
+    }
+
+
     public boolean insertRepairPlan(RepairPlan RepairPlan){
         repairPlans.add(RepairPlan);
         return true;
@@ -23,7 +36,7 @@ public class RepairPlanList implements Iterable<RepairPlan>{
     public void repairCost(Customer customer, Appliance appliance){
         for (int i = 0; i < repairPlans.size(); i++) {
             if (repairPlans.get(i).getCustomerID() == customer && repairPlans.get(i).getApplianceID() == appliance) {
-                repairPlans.get(i).setRepairCost(repairPlans.get(i).getRepairCost() + repairPlans.get(i).getRepairCost() * 0.1);
+                repairPlans.get(i).setRepairBalance(repairPlans.get(i).getRepairBalance() + repairPlans.get(i).getRepairBalance() * 0.1);
                 return;
             }
         }
@@ -32,7 +45,7 @@ public class RepairPlanList implements Iterable<RepairPlan>{
     public double chargeRepairPlan(Customer customer, double payment){
         for (int i = 0; i < repairPlans.size(); i++) {
             if (repairPlans.get(i).getCustomerID() == customer) {
-                repairPlans.get(i).setRepairCost(repairPlans.get(i).getRepairCost() - payment);
+                repairPlans.get(i).setRepairBalance(repairPlans.get(i).getRepairBalance() - payment);
                 repairPayment.add(repairPlans.get(i));
                 repairPlans.remove(i);
                 return payment;
