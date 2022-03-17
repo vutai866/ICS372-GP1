@@ -276,7 +276,6 @@ public class UserInterface {
 			FileOutputStream file = new FileOutputStream("storeData");
 			ObjectOutputStream out = new ObjectOutputStream(file);
 			out.writeObject(shop);
-			// Need to close ObjectOutputStream out
 			out.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -296,13 +295,12 @@ public class UserInterface {
 			System.out.println("Input desired Repair Type ( 1:Full-covered, 2:Limited-covered, or 3:None)");
 			int repairType = Integer.parseInt( bufferedReader.readLine());
 
-			double repairCost = 0;
+			double repairBalance = 0;
 
-			if(shop.addRepairPlan(customer, appliance, repairType, repairCost)) {
+			if(shop.addRepairPlan(customer, appliance, repairType, repairBalance)) {
 				System.out.println("Customer enrolled sucessfully");
 				return;
 			}else {
-				//This part relies on other things not yet finished.
 				System.out.println("Customer already enrolled");
 			}	
 		}catch(Exception e) {
@@ -323,7 +321,6 @@ public class UserInterface {
 				System.out.println("Customer withdrawn sucessfully");
 				return;
 			}else {
-				//This part relies on other things not yet finished.
 				System.out.println("Customer not enrolled for repair plan");
 			}
 
@@ -343,17 +340,34 @@ public class UserInterface {
 			Appliance appliance = shop.getAppliances().searchAppliances(applianceID);
 
 			if(shop.hasRepairBalance(customer, appliance)) {
-				System.out.println("Repair Cost for " + customer + " is: " + shop.repairCost(customer, appliance));
-				System.out.println("Enter payment amount: ");
-				double payment = Double.parseDouble( bufferedReader.readLine());
-				// RepairPlan repairCost = shop.getRepairCost().searchRepairPlan(RepairPlan.getPlanID());
-				// if(payment != 0) {
-				// 	shop.chargeRepairPlan(customer, payment);
-				// 	System.out.println("Repair plan charged sucessfully");
-				// 	return;
-				// }
-				// Still working on this 
+				System.out.println("Customer: " + customer);
+				System.out.println("Appliance: " + appliance);
 
+				RepairPlan repairBalance = shop.getRepairPlans().searchRepairBalance(customer, appliance);
+				System.out.println("Customer has repair balance: " + repairBalance);	
+
+				if(shop.hasRepairBalance (customer, appliance)){
+					System.out.println("You have a balance due. Make a payment? (y/n)");
+					String answer = bufferedReader.readLine();
+					answer = answer.toLowerCase();
+					if(answer.equals("y")) {
+						System.out.println("Enter payment amount: ");
+						double payment = Double.parseDouble( bufferedReader.readLine());
+
+						double newBalance = repairBalance.getRepairBalance() - payment;
+						while(newBalance < 0) {
+							System.out.println("Payment exceeds balance. Please enter a smaller amount: ");
+							payment = Double.parseDouble( bufferedReader.readLine());
+						}
+						// Set new balance into RepairPlan Balance
+						repairBalance.setRepairBalance(newBalance);
+						System.out.println("Payment made sucessfully!\n");
+						System.out.println("Your current balance is " + repairBalance.getRepairBalance());
+						return;
+					} else 
+						System.out.println("Payment not made. Thank you");
+
+				}
 				return;
 			}else {
 				//This part relies on other things not yet finished.

@@ -1,5 +1,6 @@
 {
     "files.exclude": {
         "**.class": true
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

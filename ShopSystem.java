@@ -74,7 +74,6 @@ public class ShopSystem implements Serializable {
 
 	public boolean hasRepairBalance(Customer customer, Appliance appliance){
 		if (repairPlans.getRepairPlans() != null){
-			repairPlans.repairCost(customer, appliance);
 			return true;
 		}
 		return false;
@@ -146,5 +145,4 @@ public class ShopSystem implements Serializable {
 	public void setRepairPlans(RepairPlanList newRepairPlan){
 		this.repairPlans = newRepairPlan;
 	}
-	
 }
