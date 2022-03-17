@@ -44,7 +44,8 @@ public class UserInterface {
 			System.out.println("13. \tList all backorders");
 			System.out.println("14. \tSave");
 			System.out.println("15. \tQuit");
-		
+			
+			System.out.print("Your selection: ");
 			int selection = Integer.parseInt( bufferedReader.readLine());
 			
 			switch(selection) {
@@ -86,6 +87,13 @@ public class UserInterface {
 				break;
 			case 13:
 				listBackorders();
+				break;
+			// case 14:
+			// 	save();
+			// 	break;
+			case 15:
+				System.out.println("Goodbye!");
+				System.exit(0);
 				break;
 			default: 
 				break;
