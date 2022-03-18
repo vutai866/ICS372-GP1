@@ -17,6 +17,20 @@ public class ApplianceList implements Iterable<Appliance> {
 		appliances.add(appliance);
 		return true;
 	}
+	
+	public Appliance random() {
+		Iterator<Appliance> applianceIterator = appliances.iterator();
+		int randomNumber = new Random().nextInt((appliances.size() - 0) + 1);
+		int count = 0;
+		while (applianceIterator.hasNext()) {
+			Appliance targetAppliance = applianceIterator.next();
+			if (count == randomNumber) {
+				return targetAppliance;
+			}
+			count++;
+		}
+		return null;
+	}
 
 	// seachAppliance searches for a particular appliance using the appliance ID.
 	public Appliance searchAppliances(int applianceID) {
