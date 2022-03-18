@@ -17,6 +17,20 @@ public class CustomerList implements Iterable<Customer> {
 		customers.add(customer);
 		return true;
 	}
+	
+	public Customer random() {
+		Iterator<Customer> customerIterator = customers.iterator();
+		int randomNumber = new Random().nextInt(customers.size());
+		int count = 0;
+		while (customerIterator.hasNext()) {
+			Customer targetAppliance = customerIterator.next();
+			if (count == randomNumber) {
+				return targetAppliance;
+			}
+			count++;
+		}
+		return null;
+	}
 
 	// seachCustomer searches for a particular customer using the customer ID.
 	public Customer searchCustomers(int customerID) {
