@@ -28,6 +28,7 @@ public class UserInterface {
 	}
 
 	public void run() throws NumberFormatException, IOException {
+		testBed();
 		System.out.println("Welcome to the Appliance Shop Management System.");
 		try {
 			load();
@@ -129,6 +130,7 @@ public class UserInterface {
 			if (Answer.equalsIgnoreCase("yes") || Answer.equalsIgnoreCase("y")) {
 				testBed.makeAppliances();
 				testBed.makeCustomers();
+				testBed.test();
 			}
 		} catch (IOException e1) {
 			System.out.println(" you inputed incorrectly");
