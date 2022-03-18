@@ -257,7 +257,7 @@ public class UserInterface {
 				System.out.println("Quantity exceeds inventory. Would you like to partialy fill the order and backorder the remainder (y/n) ?");
 				String answer = bufferedReader.readLine();
 				answer = answer.toLowerCase();
-				if(answer.equals("y")) {
+				if(answer.equals("y") || answer.equals("yes")) {
 					int backorderQuantity = quantity - appliance.getQuantity();
 					quantity = appliance.getQuantity();
 					shop.addOrder(quantity, customer, appliance);
@@ -356,7 +356,7 @@ public class UserInterface {
 					System.out.println("You have a balance due. Make a payment? (y/n)");
 					String answer = bufferedReader.readLine();
 					answer = answer.toLowerCase();
-					if(answer.equals("y")) {
+					if(answer.equals("y") || answer.equals("yes")) {
 						System.out.println("Enter payment amount: ");
 						double payment = Double.parseDouble( bufferedReader.readLine());
 
