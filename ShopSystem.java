@@ -89,7 +89,6 @@ public class ShopSystem implements Serializable {
 
 	public RepairPlan repairCost(Customer customer, Appliance appliance) {
 		return repairCost(customer, appliance);
-<<<<<<< HEAD
 	 }// end repairCost
 	 
 	 public double totalRepairRevenue() {
@@ -101,10 +100,8 @@ public class ShopSystem implements Serializable {
 		 return total;
 	 }
 	
-=======
-	}// end repairCost
+	// end repairCost
 
->>>>>>> 902cd10164e149d3ae4aec77c33f13f10760ccb1
 	public void listAppliances() {
 		Iterator<Appliance> applianceIterator = appliances.iterator();
 		System.out.println("printing all appliance information");
