@@ -1,3 +1,10 @@
+
+/**
+ 	* @authors Mwansa, Joseph, Tai, and Chee. 
+
+ 	*The ShopSystem Class is a blueprint for shop objects. 
+ 	*It also implements iterator and serializable
+ */
 import java.io.Serializable;
 import java.util.Iterator;
 

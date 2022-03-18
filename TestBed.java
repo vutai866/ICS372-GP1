@@ -1,3 +1,9 @@
+
+/**
+ 	* @authors Mwansa, Joseph, Tai, and Chee. 
+
+ 	*The TestBed Class can be used to test the program
+ */
 import java.util.Random;
 
 public class TestBed {
