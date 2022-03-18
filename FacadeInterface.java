@@ -7,25 +7,26 @@
 
  * */
 
+package edu.ics372.gp1;
 
 import java.util.Random;
 
 public class FacadeInterface {
 	Random random = new Random();
 	ShopSystem shop;
-	/** 
+
+	/**
 	 * create a interface to test
+	 * 
 	 * @param the shop that everything use so the information stick around
 	 */
 	public FacadeInterface(ShopSystem shop) {
 		this.shop = shop;
 	}
-	
-	
-	/** 
-	 * invoke use case 3 addTotheInventory
-	 * randomly pick a appliance and add a random quantity to the appliance
-	 * assert that the appliance did in fact change
+
+	/**
+	 * invoke use case 3 addTotheInventory randomly pick a appliance and add a
+	 * random quantity to the appliance assert that the appliance did in fact change
 	 */
 	public void addToInventory() {
 		int randomAppliance = random.nextInt(shop.getAppliances().getAppliances().size());
@@ -37,11 +38,9 @@ public class FacadeInterface {
 		assert amount + prevQuantity == appliance.getQuantity();
 	};
 
-	/** 
-	 * invoke use case 4 
-	 * randomly pick a appliance and customer
-	 * make the customer buy the appliance
-	 * assert an order did in fact get added to orderList 
+	/**
+	 * invoke use case 4 randomly pick a appliance and customer make the customer
+	 * buy the appliance assert an order did in fact get added to orderList
 	 */
 	public void purchase() {
 		try {
@@ -62,8 +61,6 @@ public class FacadeInterface {
 				System.out.println("Quantity exceeds inventory. Furnaces can not be backordered");
 			} else {
 				// This part relies on other things not yet finished.
-				System.out.println(
-						"Quantity exceeds inventory. Would you like to partialy fill the order and backorder the remainder (y/n) ?");
 				String answer = "y";
 				answer = answer.toLowerCase();
 				if (answer.equals("y") || answer.equals("yes")) {
@@ -81,13 +78,10 @@ public class FacadeInterface {
 		}
 	}
 
-	
-	/** 
-	 * invoke use case 7 
-	 * find a customer with repair plan 
-	 * if there are no customer with repair plan the method doesn't add anything
-	 * assert make sure that when a repair plan did get withdraw
-	 * the amount of repairPlan actually decrease
+	/**
+	 * invoke use case 7 find a customer with repair plan if there are no customer
+	 * with repair plan the method doesn't add anything assert make sure that when a
+	 * repair plan did get withdraw the amount of repairPlan actually decrease
 	 */
 	public void withdrawCustomer() {
 		try {
@@ -102,7 +96,7 @@ public class FacadeInterface {
 				return;
 			} else {
 				System.out.println("Customer not enrolled for repair plan");
-				assert repairPlanSize==shop.getRepairPlans().getRepairPlans().size();
+				assert repairPlanSize == shop.getRepairPlans().getRepairPlans().size();
 			}
 
 		} catch (Exception e) {
@@ -111,21 +105,18 @@ public class FacadeInterface {
 		}
 	}// end void withdrawCustomer
 
-	
-	/** 
-	 * invoke use case 9 
-	 * print the totalRevenue
-	 * assert the the amount is actually what it is. 
+	/**
+	 * invoke use case 9 print the totalRevenue assert the the amount is actually
+	 * what it is.
 	 */
 	public void printTotalRevenue() {
 		System.out.println("The total revenue is: $" + shop.totalRepairRevenue());
 		assert shop.totalRepairRevenue() == shop.totalRepairRevenue();
 	}
 
-	/** 
-	 * invoke use case 8 
-	 * if the repair plan is not empty charge the repair plan
-	 * assert that they are actually getting charged. 
+	/**
+	 * invoke use case 8 if the repair plan is not empty charge the repair plan
+	 * assert that they are actually getting charged.
 	 */
 	public void chargeAllRepairPlans() {
 		try {
@@ -137,13 +128,12 @@ public class FacadeInterface {
 				if (shop.hasRepairBalance(customer, appliance)) {
 
 					RepairPlan repairBalance = shop.getRepairPlans().searchRepairBalance(customer, appliance);
-					System.out.println("Customer has repair balance: " + repairBalance);
 
 					if (shop.hasRepairBalance(customer, appliance)) {
 						String answer = "y";
 						answer = answer.toLowerCase();
 						if (answer.equals("y") || answer.equals("yes")) {
-			
+
 							double payment = shop.getRepairPlans().searchRepairBalance(customer, appliance)
 									.getRepairBalance();
 
@@ -157,7 +147,7 @@ public class FacadeInterface {
 							repairBalance.setRepairBalance(newBalance);
 							assert shop.getRepairPlans().searchRepairBalance(customer, appliance)
 									.getRepairBalance() <= originalBalance;
-							System.out.println("Payment made sucessfully!\n");
+							System.out.println("Payment made sucessfully!");
 							System.out.println("Your current balance is " + repairBalance.getRepairBalance());
 							return;
 						} else
@@ -179,10 +169,11 @@ public class FacadeInterface {
 		}
 
 	}
-	/** 
-	 * invoke test use case 6 
-	 * add a random customer and enroll them in a random appliance repair plan
-	 * assert that the repair plan is actually created and added 
+
+	/**
+	 * invoke test use case 6 add a random customer and enroll them in a random
+	 * appliance repair plan assert that the repair plan is actually created and
+	 * added
 	 */
 	public void enrollCustomer() {
 		try {
@@ -203,7 +194,9 @@ public class FacadeInterface {
 				assert repairPlanSize < shop.getAppliances().getAppliances().size();
 				return;
 			} else {
-				System.out.println("appliance cannot be enrolled");
+				System.out.println("appliance doesn't have an enrollment program");
+				assert appliance.getClass().equals(Washer.class);
+				assert appliance.getClass().equals(Dryer.class);
 			}
 		} catch (Exception e) {
 			System.out.print("enroll ");
@@ -212,10 +205,8 @@ public class FacadeInterface {
 		}
 	}// end void enrollCustomer
 
-	
-	/** 
-	 * invoke test use case 5 
-	 * if there is a backOrder fullfilled the backorder
+	/**
+	 * invoke test use case 5 if there is a backOrder fullfilled the backorder
 	 * assert that the backOrder is completed and removed
 	 */
 	public void fulfillBackorder() {
@@ -228,4 +219,5 @@ public class FacadeInterface {
 
 	}
 }
+
 
