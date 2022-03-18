@@ -25,6 +25,24 @@ public class RepairPlanList implements Iterable<RepairPlan> {
 		}
 		return null;
 	}
+	
+		public Customer customerWithPlan() {
+		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
+		while (repairPlanIterator.hasNext()) {
+			Customer targetRepairPlan = repairPlanIterator.next().getCustomerID();
+			return targetRepairPlan;
+		}
+		return null;
+	}
+
+	public Appliance applianceWithPlan() {
+		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
+		while (repairPlanIterator.hasNext()) {
+			Appliance targetRepairPlan = repairPlanIterator.next().getApplianceID();
+			return targetRepairPlan;
+		}
+		return null;
+	}
 
 	// insertRepairPlan adds a repairPlan into the list of repairPlans.
 	public boolean insertRepairPlan(RepairPlan RepairPlan) {
