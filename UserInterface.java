@@ -92,15 +92,9 @@ public class UserInterface {
 			case 8:
 				chargeAllRepairPlans();
 				break;
-<<<<<<< HEAD
 			case 9:
 			 	printTotalRevenue();
 			 	break;
-=======
-			// case 9:
-			// printTotalRevenue();
-			// break;
->>>>>>> 902cd10164e149d3ae4aec77c33f13f10760ccb1
 			case 10:
 				listAppliance();
 				break;
@@ -125,11 +119,6 @@ public class UserInterface {
 			}
 		}
 	}
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> 902cd10164e149d3ae4aec77c33f13f10760ccb1
 	public void testBed() {
 		TestBed testBed = new TestBed(shop);
 
@@ -144,14 +133,9 @@ public class UserInterface {
 		} catch (IOException e1) {
 			System.out.println(" you inputed incorrectly");
 		}
-<<<<<<< HEAD
 	}
-	public void help(){
-=======
-	};
 
 	public void help() {
->>>>>>> 902cd10164e149d3ae4aec77c33f13f10760ccb1
 		System.out.println("What would you like to do?");
 		System.out.println("0. \tExit - Quit the program");
 		System.out.println("1. \tAdd a new model - Create a new appliance model");
