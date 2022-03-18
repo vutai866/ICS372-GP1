@@ -7,7 +7,7 @@ import java.util.*;
 
 public class UserInterface {
 	BufferedReader bufferedReader =  new BufferedReader(new InputStreamReader(System.in));//Used to read input.
-	ShopSystem shop;
+	ShopSystem shop= new ShopSystem();
 	
 	public static void main(String[] args) {
 		UserInterface userInterface = new UserInterface();
