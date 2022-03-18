@@ -29,6 +29,7 @@ public class UserInterface {
 			 * 
 			 */
 			System.out.println("What would you like to do?");
+			System.out.println("0. \tExit");
 			System.out.println("1. \tAdd a new model");
 			System.out.println("2. \tAdd a customer");
 			System.out.println("3. \tAdd to inventory");
@@ -43,12 +44,16 @@ public class UserInterface {
 			System.out.println("12. \tList all users");
 			System.out.println("13. \tList all backorders");
 			System.out.println("14. \tSave");
-			System.out.println("15. \tQuit");
+			System.out.println("15. \tHelp");
 			
 			System.out.print("Your selection: ");
 			int selection = Integer.parseInt( bufferedReader.readLine());
 			
 			switch(selection) {
+			case 0:
+				System.out.println("Goodbye!");
+				System.exit(0);
+				break;
 			case 1:
 				addAppliance();
 				break;
@@ -92,8 +97,8 @@ public class UserInterface {
 			// 	save();
 			// 	break;
 			case 15:
-				System.out.println("Goodbye!");
-				System.exit(0);
+				help();
+				System.out.println("Help!");
 				break;
 			default: 
 				break;
@@ -101,6 +106,27 @@ public class UserInterface {
 		}
 	}
 	
+	public void help(){
+		System.out.println("What would you like to do?");
+		System.out.println("0. \tExit - Quit the program");
+		System.out.println("1. \tAdd a new model - Create a new appliance model");
+		System.out.println("2. \tAdd a customer - Add a new customer ");
+		System.out.println("3. \tAdd to inventory");
+		System.out.println("4. \tBuy a model");
+		System.out.println("5. \tFulfill a backorder");
+		System.out.println("6. \tEnroll a customer in a repair plan");
+		System.out.println("7. \tWithdraw a customer from a repair plan");
+		System.out.println("8. \tCharge all repair plans");
+		System.out.println("9. \tPrint total revenue from all repair plans.");
+		System.out.println("10. \tList appliances");
+		System.out.println("11. \tList all users in repair plans");
+		System.out.println("12. \tList all users");
+		System.out.println("13. \tList all backorders");
+		System.out.println("14. \tSave");
+		System.out.println("15. \tHelp");
+	}// end help
+
+
 	public void listUsers() {
 		System.out.println("Getting ready to print all User information");
 		shop.listUsers();
@@ -137,11 +163,11 @@ public class UserInterface {
 	}
 	public void addAppliance() {
 		try {
-			System.out.println("what type of appliance do you wish to add?");
-			System.out.println("type 1 for washer");
-			System.out.println("type 2 for dryer");
-			System.out.println("type 3 for refrigerator");
-			System.out.println("type 4 for furnace");
+			System.out.println("What type of appliance do you wish to add?");
+			System.out.println("type 1 for Washer");
+			System.out.println("type 2 for Dryer");
+			System.out.println("type 3 for Refrigerator");
+			System.out.println("type 4 for Furnace");
 			int input = Integer.parseInt(bufferedReader.readLine());
 			if (input == 1 || input == 2 || input == 3 || input == 4) {
 				System.out.println("what is the brand name of the appliance?");
@@ -156,13 +182,13 @@ public class UserInterface {
 					int monthlyRepairCost = Integer.parseInt(bufferedReader.readLine());
 					appliance = new Washer(modelName, brandName, price, monthlyRepairCost);
 					if (shop.addAppliance(appliance)) {
-						System.out.println("added sucessfully");
-						System.out.println("the appliance id is:" + appliance.getApplianceID());
+						System.out.println("Added Sucessfully");
+						System.out.println("The appliance id is:" + appliance.getApplianceID());
 					} else {
-						System.out.println("added unsucessfully");
+						System.out.println("Added Unsucessfully");
 					}
 				} else if (input == 2) {
-					System.out.println("what is the monthly repair cost?");
+					System.out.println("What is the monthly repair cost?");
 					int monthlyRepairCost = Integer.parseInt(bufferedReader.readLine());
 					appliance = new Dryer(modelName, brandName, price, monthlyRepairCost);
 					if (shop.addAppliance(appliance)) {
