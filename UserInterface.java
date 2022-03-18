@@ -1,34 +1,39 @@
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.*;
 
 public class UserInterface {
-	BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));// Used to read input.
-	ShopSystem shop = new ShopSystem();
-
+	BufferedReader bufferedReader =  new BufferedReader(new InputStreamReader(System.in));//Used to read input.
+	ShopSystem shop= new ShopSystem();
+	
 	public static void main(String[] args) {
 		UserInterface userInterface = new UserInterface();
-
-		userInterface.testBed();
-
 		try {
-			userInterface.run();
-		} catch (Exception e) {
+		userInterface.run();
+		}catch(Exception e){
 			System.out.println(e.toString());
 		}
 	}
-
+	
 	public void run() throws NumberFormatException, IOException {
 		System.out.println("Welcome to the Appliance Shop Management System.");
-		while (true) {
-			/*
-			 * This is the primary loop. Every time the program returns here, it lists out a
-			 * numbered list of possible actions. One action, one use case, one method. The
-			 * user will input an integer, and a switch statement will call the
-			 * corresponding method.
+		try {
+			load();
+		}catch(Exception e){
+			this.testBed();
+		}
+		while(true) {
+			/*This is the primary loop.
+			 * Every time the program returns here, it lists out a numbered list
+			 * of possible actions. One action, one use case, one method.
+			 * The user will input an integer, and a switch statement will call
+			 * the corresponding method.
 			 * 
 			 */
 			System.out.println("What would you like to do?");
@@ -48,11 +53,11 @@ public class UserInterface {
 			System.out.println("13. \tList all backorders");
 			System.out.println("14. \tSave");
 			System.out.println("15. \tHelp");
-
+			
 			System.out.print("Your selection: ");
-			int selection = Integer.parseInt(bufferedReader.readLine());
-
-			switch (selection) {
+			int selection = Integer.parseInt( bufferedReader.readLine());
+			
+			switch(selection) {
 			case 0:
 				System.out.println("Goodbye!");
 				System.exit(0);
@@ -69,10 +74,10 @@ public class UserInterface {
 			case 4:
 				purchase();
 				break;
-//			case 5:
-//				fulfillBackorder();
-//				break;
-			case 6:
+			case 5:
+				fulfillBackorder();
+				break;
+			case 6: 
 				enrollCustomer();
 				break;
 			case 7:
@@ -82,8 +87,8 @@ public class UserInterface {
 				chargeAllRepairPlans();
 				break;
 			// case 9:
-			// printTotalRevenue();
-			// break;
+			// 	printTotalRevenue();
+			// 	break;
 			case 10:
 				listAppliance();
 				break;
@@ -96,20 +101,20 @@ public class UserInterface {
 			case 13:
 				listBackorders();
 				break;
-			// case 14:
-			// save();
-			// break;
+			case 14:
+				save();
+				break;
 			case 15:
 				help();
 				System.out.println("Help!");
 				break;
-			default:
+			default: 
 				break;
 			}
 		}
 	}
-
-	public void testBed() {
+	
+		public void testBed() {
 		TestBed testBed = new TestBed(shop);
 
 		System.out.println("Do you want to generate a test bed and invoke the functionality?");
@@ -124,8 +129,7 @@ public class UserInterface {
 			System.out.println(" you inputed incorrectly");
 		}
 	};
-
-	public void help() {
+	public void help(){
 		System.out.println("What would you like to do?");
 		System.out.println("0. \tExit - Quit the program");
 		System.out.println("1. \tAdd a new model - Create a new appliance model");
@@ -145,43 +149,41 @@ public class UserInterface {
 		System.out.println("15. \tHelp");
 	}// end help
 
+
 	public void listUsers() {
 		System.out.println("Getting ready to print all User information");
 		shop.listUsers();
 	}
-
 	public void listEnrolledUsers() {
 		System.out.println("Getting ready to print all Users in repair plans");
 		shop.listEnrolledUsers();
 	}
-
 	public void listBackorders() {
 		System.out.println("Getting ready to print all Backorders");
 		shop.listBackorders();
 	}
-
 	public void listAppliance() {
-
+		
 		try {
-			System.out.println("press one if you want to list all appliance"
-					+ "press two if you want to print a specific appliance");
-
+		System.out.println("press one if you want to list all appliance"
+				+ "press two if you want to print a specific appliance");
+	
 			int input = Integer.parseInt(bufferedReader.readLine());
-
-			if (input == 1) {
+			
+			if(input == 1) {
 				shop.listAppliances();
-			} else if (input == 2) {
+			}
+			else if(input == 2) {
 				System.out.println("what is the appliance id of the appliance you wish to look at?");
 				int id = Integer.parseInt(bufferedReader.readLine());
 				shop.listAppliance(id);
 			}
 		} catch (IOException e) {
-
+			
 			e.printStackTrace();
 		}
-
+		
 	}
-
 	public void addAppliance() {
 		try {
 			System.out.println("What type of appliance do you wish to add?");
@@ -238,7 +240,7 @@ public class UserInterface {
 					} else {
 						System.out.println("added unsucessfully");
 					}
-				}
+				} 
 			} else {
 				System.out.println("you did not type a number between 1 and 4" + "\n try again");
 			}
@@ -246,7 +248,7 @@ public class UserInterface {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void addToInventory() {
 
 		try {
@@ -284,48 +286,47 @@ public class UserInterface {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void purchase() {
 		try {
 			System.out.println("Input desired Customer ID");
-			int customerID = Integer.parseInt(bufferedReader.readLine());
+			int customerID = Integer.parseInt( bufferedReader.readLine());
 			Customer customer = shop.getCustomers().searchCustomers(customerID);
 			System.out.println("Input desired Appliance ID");
-			int applianceID = Integer.parseInt(bufferedReader.readLine());
+			int applianceID = Integer.parseInt( bufferedReader.readLine());
 			Appliance appliance = shop.getAppliances().searchAppliances(applianceID);
 			int quantity = Integer.parseInt(bufferedReader.readLine());
-			if (shop.addOrder(quantity, customer, appliance)) {
+			if(shop.addOrder(quantity, customer, appliance)) {
 				System.out.println("Order created sucessfully");
 				return;
-			} else if (appliance instanceof Furnace) {
+			}else if(appliance instanceof Furnace) {
 				System.out.println("Quantity exceeds inventory. Furnaces can not be backordered");
-			} else {
-				// This part relies on other things not yet finished.
-				System.out.println(
-						"Quantity exceeds inventory. Would you like to partialy fill the order and backorder the remainder (y/n) ?");
+			}else{
+				//This part relies on other things not yet finished.
+				System.out.println("Quantity exceeds inventory. Would you like to partialy fill the order and backorder the remainder (y/n) ?");
 				String answer = bufferedReader.readLine();
 				answer = answer.toLowerCase();
-				if (answer.equals("y") || answer.equals("yes")) {
+				if(answer.equals("y") || answer.equals("yes")) {
 					int backorderQuantity = quantity - appliance.getQuantity();
 					quantity = appliance.getQuantity();
 					shop.addOrder(quantity, customer, appliance);
-					shop.addBackorder(backorderQuantity, customer, appliance);
+					shop.addBackorder(backorderQuantity, customer, appliance);	
 				}
-			}
-		} catch (Exception e) {
+			}	
+		}catch(Exception e) {
 			System.out.println("invalid input");
 			return;
 		}
 	}
-
+	
 	public void fulfillBackorder() throws NumberFormatException, IOException {
 		System.out.println("Input desired backorderID");
-		int backorderID = Integer.parseInt(bufferedReader.readLine());
+		int backorderID = Integer.parseInt( bufferedReader.readLine());
 		shop.fulfillBackorder(backorderID);
-
+		
 	}
-
-	public void Save() {
+	
+	public void save() {
 		try {
 			FileOutputStream file = new FileOutputStream("storeData");
 			ObjectOutputStream out = new ObjectOutputStream(file);
@@ -337,98 +338,104 @@ public class UserInterface {
 			e.printStackTrace();
 		}
 	}
+	
+	public void load() throws IOException, ClassNotFoundException {
+		FileInputStream file = new FileInputStream("storeData");
+		ObjectInputStream in = new ObjectInputStream(file);
+		shop = (ShopSystem) in.readObject();
+	}
 
-	public void enrollCustomer() {
+	public void enrollCustomer(){
 		try {
 			System.out.println("Input desired Customer ID");
-			int customerID = Integer.parseInt(bufferedReader.readLine());
+			int customerID = Integer.parseInt( bufferedReader.readLine());
 			Customer customer = shop.getCustomers().searchCustomers(customerID);
 			System.out.println("Input desired Appliance ID");
-			int applianceID = Integer.parseInt(bufferedReader.readLine());
+			int applianceID = Integer.parseInt( bufferedReader.readLine());
 			Appliance appliance = shop.getAppliances().searchAppliances(applianceID);
 			System.out.println("Input desired Repair Type ( 1:Full-covered, 2:Limited-covered, or 3:None)");
-			int repairType = Integer.parseInt(bufferedReader.readLine());
+			int repairType = Integer.parseInt( bufferedReader.readLine());
 
 			double repairBalance = 0;
 
-			if (shop.addRepairPlan(customer, appliance, repairType, repairBalance)) {
+			if(shop.addRepairPlan(customer, appliance, repairType, repairBalance)) {
 				System.out.println("Customer enrolled sucessfully");
 				return;
-			} else {
+			}else {
 				System.out.println("Customer already enrolled");
-			}
-		} catch (Exception e) {
+			}	
+		}catch(Exception e) {
 			System.out.println("invalid input");
 			return;
 		}
 	}// end void enrollCustomer
 
-	public void withdrawCustomer() {
+	public void withdrawCustomer(){
 		try {
 			System.out.println("Input desired Customer ID");
-			int customerID = Integer.parseInt(bufferedReader.readLine());
+			int customerID = Integer.parseInt( bufferedReader.readLine());
 			Customer customer = shop.getCustomers().searchCustomers(customerID);
 			System.out.println("Input desired Appliance ID");
-			int applianceID = Integer.parseInt(bufferedReader.readLine());
+			int applianceID = Integer.parseInt( bufferedReader.readLine());
 			Appliance appliance = shop.getAppliances().searchAppliances(applianceID);
-			if (shop.removeRepairPlan(customer, appliance)) {
+			if(shop.removeRepairPlan(customer, appliance)) {
 				System.out.println("Customer withdrawn sucessfully");
 				return;
-			} else {
+			}else {
 				System.out.println("Customer not enrolled for repair plan");
 			}
 
-		} catch (Exception e) {
+		} catch(Exception e) {
 			System.out.println("invalid input");
 			return;
 		}
 	}// end void withdrawCustomer
 
-	public void chargeAllRepairPlans() {
+	public void chargeAllRepairPlans(){
 		try {
 			System.out.println("Input desired Customer ID");
-			int customerID = Integer.parseInt(bufferedReader.readLine());
+			int customerID = Integer.parseInt( bufferedReader.readLine());
 			Customer customer = shop.getCustomers().searchCustomers(customerID);
 			System.out.println("Input desired Appliance ID");
-			int applianceID = Integer.parseInt(bufferedReader.readLine());
+			int applianceID = Integer.parseInt( bufferedReader.readLine());
 			Appliance appliance = shop.getAppliances().searchAppliances(applianceID);
 
-			if (shop.hasRepairBalance(customer, appliance)) {
+			if(shop.hasRepairBalance(customer, appliance)) {
 				System.out.println("Customer: " + customer);
 				System.out.println("Appliance: " + appliance);
 
 				RepairPlan repairBalance = shop.getRepairPlans().searchRepairBalance(customer, appliance);
-				System.out.println("Customer has repair balance: " + repairBalance);
+				System.out.println("Customer has repair balance: " + repairBalance);	
 
-				if (shop.hasRepairBalance(customer, appliance)) {
+				if(shop.hasRepairBalance (customer, appliance)){
 					System.out.println("You have a balance due. Make a payment? (y/n)");
 					String answer = bufferedReader.readLine();
 					answer = answer.toLowerCase();
-					if (answer.equals("y") || answer.equals("yes")) {
+					if(answer.equals("y") || answer.equals("yes")) {
 						System.out.println("Enter payment amount: ");
-						double payment = Double.parseDouble(bufferedReader.readLine());
+						double payment = Double.parseDouble( bufferedReader.readLine());
 
 						double newBalance = repairBalance.getRepairBalance() - payment;
-						while (newBalance < 0) {
+						while(newBalance < 0) {
 							System.out.println("Payment exceeds balance. Please enter a smaller amount: ");
-							payment = Double.parseDouble(bufferedReader.readLine());
+							payment = Double.parseDouble( bufferedReader.readLine());
 						}
 						// Set new balance into RepairPlan Balance
 						repairBalance.setRepairBalance(newBalance);
 						System.out.println("Payment made sucessfully!\n");
 						System.out.println("Your current balance is " + repairBalance.getRepairBalance());
 						return;
-					} else
+					} else 
 						System.out.println("Payment not made. Thank you");
 
 				}
 				return;
-			} else {
-				// This part relies on other things not yet finished.
+			}else {
+				//This part relies on other things not yet finished.
 				System.out.println("Customer not enrolled for repair plan");
 			}
 
-		} catch (Exception e) {
+		} catch(Exception e) {
 			System.out.println("invalid input");
 			return;
 		}
