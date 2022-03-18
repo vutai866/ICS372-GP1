@@ -1,4 +1,3 @@
-package edu.ics372.gp1;
 
 import java.util.Random;
 
