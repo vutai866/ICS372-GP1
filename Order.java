@@ -1,26 +1,38 @@
+
+/**
+ 	* @authors Mwansa, Joseph, Tai, and Chee. 
+
+ 	*The Order Class is a blueprint for Order objects. 
+ */
 import java.util.*;
+
 public class Order {
-    private int orderID;
-    private double orderPrice;
-    private int quantity;
-    private Customer buyer;
-    private Appliance appliance;
+	private int orderID;
+	private double orderPrice;
+	private int quantity;
+	private Customer buyer;
+	private Appliance appliance;
 
-    public Order(double orderPrice, int quantity, Customer orderCustomer, Appliance setAppliance) {
-        this.setOrderID(new Random().nextInt(999999999));
-        this.setOrderPrice(orderPrice);
-        this.setQuantity(quantity);
-        this.setBuyer(orderCustomer);
-        this.setAppliance(setAppliance);
-    }// end public Order class
+	/**
+	 * The Order class constructor initializes orderPrice, quantity,orderCustomer,
+	 * and setAppliance variables
+	 */
+	public Order(double orderPrice, int quantity, Customer orderCustomer, Appliance setAppliance) {
+		this.setOrderID(new Random().nextInt(999999999));
+		this.setOrderPrice(orderPrice);
+		this.setQuantity(quantity);
+		this.setBuyer(orderCustomer);
+		this.setAppliance(setAppliance);
+	}
 
-    public void setPrice(double newPrice) {
-        setOrderPrice(newPrice);
-    }// end setOrder
+	// getters and setters
+	public void setPrice(double newPrice) {
+		setOrderPrice(newPrice);
+	}
 
-    public void changeQuantity(int newQuantity){
-        setQuantity(newQuantity);
-    }// end changeQuantity
+	public void changeQuantity(int newQuantity) {
+		setQuantity(newQuantity);
+	}
 
 	public int getOrderID() {
 		return orderID;
@@ -61,5 +73,5 @@ public class Order {
 	public void setAppliance(Appliance appliance) {
 		this.appliance = appliance;
 	}
-    
-} // end class Order
+
+}
