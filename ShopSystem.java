@@ -1,5 +1,7 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class ShopSystem implements Serializable {
 	private CustomerList customers = new CustomerList();
@@ -82,6 +84,15 @@ public class ShopSystem implements Serializable {
 	 public RepairPlan repairCost(Customer customer, Appliance appliance){
 		return repairCost(customer, appliance);
 	 }// end repairCost
+	 
+	 public double totalRepairRevenue() {
+		 double total = 0;
+		 List<RepairPlan> plans = repairPlans.getTotalCost();
+		 for(int index = 0; index < plans.size(); index++) {
+			 total += plans.get(index).getRepairBalance();
+		 }
+		 return total;
+	 }
 	
 	public void listAppliances() {
 		Iterator<Appliance> applianceIterator = appliances.iterator();

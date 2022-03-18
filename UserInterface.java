@@ -86,9 +86,9 @@ public class UserInterface {
 			case 8:
 				chargeAllRepairPlans();
 				break;
-			// case 9:
-			// 	printTotalRevenue();
-			// 	break;
+			case 9:
+			 	printTotalRevenue();
+			 	break;
 			case 10:
 				listAppliance();
 				break;
@@ -114,7 +114,7 @@ public class UserInterface {
 		}
 	}
 	
-		public void testBed() {
+	public void testBed() {
 		TestBed testBed = new TestBed(shop);
 
 		System.out.println("Do you want to generate a test bed and invoke the functionality?");
@@ -128,7 +128,7 @@ public class UserInterface {
 		} catch (IOException e1) {
 			System.out.println(" you inputed incorrectly");
 		}
-	};
+	}
 	public void help(){
 		System.out.println("What would you like to do?");
 		System.out.println("0. \tExit - Quit the program");
@@ -440,5 +440,9 @@ public class UserInterface {
 			return;
 		}
 	}// end void chargeAllRepairPlans
+	
+	public void printTotalRevenue() {
+		System.out.println("The total revenue is: $" + shop.totalRepairRevenue());
+	}
 
 }
