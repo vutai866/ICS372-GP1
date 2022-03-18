@@ -11,6 +11,9 @@ public class UserInterface {
 	
 	public static void main(String[] args) {
 		UserInterface userInterface = new UserInterface();
+		
+		userInterface.testBed();
+		
 		try {
 		userInterface.run();
 		}catch(Exception e){
@@ -106,6 +109,21 @@ public class UserInterface {
 		}
 	}
 	
+		public void testBed() {
+		TestBed testBed = new TestBed(shop);
+
+		System.out.println("Do you want to generate a test bed and invoke the functionality?");
+		System.out.println("type y or yes");
+		try {
+			String Answer = bufferedReader.readLine();
+			if (Answer.equalsIgnoreCase("yes") || Answer.equalsIgnoreCase("y")) {
+				testBed.makeAppliances();
+				testBed.makeCustomers();
+			}
+		} catch (IOException e1) {
+			System.out.println(" you inputed incorrectly");
+		}
+	};
 	public void help(){
 		System.out.println("What would you like to do?");
 		System.out.println("0. \tExit - Quit the program");
