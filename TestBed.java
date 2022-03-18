@@ -1,8 +1,7 @@
-
 /**
  	* @authors Mwansa, Joseph, Tai, and Chee. 
 
- 	*The TestBed Class can be used to test the program
+ 	*The TestBed Class simulate a test bed that invoke the functionally and use asserts to test them
  */
 import java.util.Random;
 
@@ -16,6 +15,11 @@ public class TestBed {
 		this.facade = new FacadeInterface(this.shop);
 	}
 
+	/**
+	 * this class invoke the functionality 
+	 * and use asserts to make sure the answers are correct.
+	 * 
+	 */
 	public void test() {
 
 		facade.addToInventory();
@@ -27,7 +31,11 @@ public class TestBed {
 		facade.printTotalRevenue();
 
 	}
-
+	
+	/**
+	 * this class create 5 customers
+	 * and then insert them directly into the customerlist
+	 */
 	public void makeCustomers() {
 
 		Customer chee = new Customer("chee", "1835 73rd Ave NE Medina Washington", "6126079639");
@@ -43,6 +51,10 @@ public class TestBed {
 		shop.getCustomers().insertCustomer(john);
 	}
 
+	/**
+	 * this class create at least 20 appliances
+	 * and then insert them directly into the customerlist
+	 */
 	public void makeAppliances() {
 		for (int i = 0; i < 20; i++) {
 			int rand = new Random().nextInt(4);
