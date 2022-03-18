@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch UserInterface",
+            "request": "launch",
+            "mainClass": "UserInterface",
+            "projectName": "ICS372-GP1"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",

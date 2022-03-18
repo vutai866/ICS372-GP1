@@ -164,7 +164,7 @@ public class UserInterface {
 				} else if (input == 2) {
 					System.out.println("what is the monthly repair cost?");
 					int monthlyRepairCost = Integer.parseInt(bufferedReader.readLine());
-					appliance = new Dryer(modelName, brandName, price, quantity, monthlyRepairCost);
+					appliance = new Dryer(modelName, brandName, price, monthlyRepairCost);
 					if (shop.addAppliance(appliance)) {
 						System.out.println("added sucessfully");
 						System.out.println("the appliance id is:" + appliance.getApplianceID());
@@ -174,7 +174,7 @@ public class UserInterface {
 				} else if (input == 3) {
 					System.out.println("what is the capcity of the refridgerator?");
 					int capacity = Integer.parseInt(bufferedReader.readLine());
-					appliance = new Refrigerator(modelName, brandName, price, quantity, capacity);
+					appliance = new Refrigerator(modelName, brandName, price, capacity);
 					if (shop.addAppliance(appliance)) {
 						System.out.println("added sucessfully");
 						System.out.println("the appliance id is:" + appliance.getApplianceID());
@@ -184,7 +184,7 @@ public class UserInterface {
 				} else if (input == 4) {
 					System.out.println("what is the heat output?");
 					int heatOutPut = Integer.parseInt(bufferedReader.readLine());
-					appliance = new Furnace(modelName, brandName, price, quantity, heatOutPut);
+					appliance = new Furnace(modelName, brandName, price, heatOutPut);
 					if (shop.addAppliance(appliance)) {
 						System.out.println("added sucessfully");
 						System.out.println("the appliance id is:" + appliance.getApplianceID());
