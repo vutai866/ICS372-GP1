@@ -1,3 +1,10 @@
+
+/**
+ 	* @authors Mwansa, Joseph, Tai, and Chee. 
+
+ 	*The ShopSystem Class is a blueprint for shop objects. 
+ 	*It also implements iterator and serializable
+ */
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,31 +17,30 @@ public class ShopSystem implements Serializable {
 	private RepairPlanList repairPlans = new RepairPlanList();
 
 	public boolean addCustomer(Customer customer) {
-		if(customers.insertCustomer(customer)) {
-		return true;
-		}
-		else{return false;
-		}
-	}
-	
-	public boolean addAppliance(Appliance appliance) {
-		if(appliances.insertAppliance(appliance)) {
+		if (customers.insertCustomer(customer)) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
+
+	public boolean addAppliance(Appliance appliance) {
+		if (appliances.insertAppliance(appliance)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public void addToInventory(int applianceId, int amount) {
 		Appliance appliance = appliances.searchAppliances(applianceId);
 		int total = appliance.getQuantity() + amount;
 		appliance.setQuantity(total);
 	}
-	
+
 	public boolean addOrder(int size, Customer customer, Appliance appliance) {
 		double price = appliance.getPrice() * size;
-		if(appliance.getQuantity() >= size) {
+		if (appliance.getQuantity() >= size) {
 			appliance.setQuantity(appliance.getQuantity() - size);
 			Order order = new Order(price, size, customer, appliance);
 			orders.insertOrder(order);
@@ -42,15 +48,15 @@ public class ShopSystem implements Serializable {
 		}
 		return false;
 	}
-	
+
 	public void addBackorder(int size, Customer customer, Appliance appliance) {
 		orders.insertOrder(new Backorder(appliance.getPrice(), size, customer, appliance));
 	}
-	
+
 	public boolean fulfillBackorder(int id) {
 		Order order = orders.searchOrders(id);
-		if(order instanceof Backorder) {
-			if(addOrder(order.getQuantity(),order.getBuyer(),order.getAppliance())) {
+		if (order instanceof Backorder) {
+			if (addOrder(order.getQuantity(), order.getBuyer(), order.getAppliance())) {
 				orders.removeOrder(id);
 				return true;
 			}
@@ -58,31 +64,32 @@ public class ShopSystem implements Serializable {
 		return false;
 	}
 
-	public boolean addRepairPlan(Customer customer, Appliance appliance, int repairType, double repairCost){
-		if (repairPlans.getRepairPlans() == null){
+	public boolean addRepairPlan(Customer customer, Appliance appliance, int repairType, double repairCost) {
+		if (repairPlans.getRepairPlans() == null) {
 			RepairPlan plan = new RepairPlan(customer, appliance, repairType, repairCost);
 			repairPlans.insertRepairPlan(plan);
 		}
 		return false;
 	} // end boolean addRepairPlan
 
-	public boolean removeRepairPlan(Customer customer, Appliance appliance){
-		if (repairPlans.getRepairPlans() != null){
+	public boolean removeRepairPlan(Customer customer, Appliance appliance) {
+		if (repairPlans.getRepairPlans() != null) {
 			repairPlans.removeRepairPlan(customer, appliance);
 			return true;
 		}
 		return false;
 	} // end boolean removeRepairPlan
 
-	public boolean hasRepairBalance(Customer customer, Appliance appliance){
-		if (repairPlans.getRepairPlans() != null){
+	public boolean hasRepairBalance(Customer customer, Appliance appliance) {
+		if (repairPlans.getRepairPlans() != null) {
 			return true;
 		}
 		return false;
- 	} // end boolean hasRepairBalance
+	} // end boolean hasRepairBalance
 
-	 public RepairPlan repairCost(Customer customer, Appliance appliance){
+	public RepairPlan repairCost(Customer customer, Appliance appliance) {
 		return repairCost(customer, appliance);
+<<<<<<< HEAD
 	 }// end repairCost
 	 
 	 public double totalRepairRevenue() {
@@ -94,6 +101,10 @@ public class ShopSystem implements Serializable {
 		 return total;
 	 }
 	
+=======
+	}// end repairCost
+
+>>>>>>> 902cd10164e149d3ae4aec77c33f13f10760ccb1
 	public void listAppliances() {
 		Iterator<Appliance> applianceIterator = appliances.iterator();
 		System.out.println("printing all appliance information");
@@ -102,6 +113,7 @@ public class ShopSystem implements Serializable {
 			System.out.println(appliance);
 		}
 	}
+
 	public void listUsers() {
 		Iterator<Customer> customerIterator = customers.iterator();
 		System.out.println("printing all User information");
@@ -110,6 +122,7 @@ public class ShopSystem implements Serializable {
 			System.out.println(customer);
 		}
 	}
+
 	public void listEnrolledUsers() {
 		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
 		System.out.println("printing all Users in repair plans");
@@ -117,7 +130,7 @@ public class ShopSystem implements Serializable {
 			RepairPlan repairPlan = repairPlanIterator.next();
 			System.out.println(repairPlan);
 		}
-		
+
 	}
 
 	public void listBackorders() {
@@ -129,18 +142,18 @@ public class ShopSystem implements Serializable {
 				System.out.println(order);
 			}
 		}
-		
+
 	}
-	
+
 	public void listAppliance(int id) {
 		System.out.println("printing the appliance information");
 		System.out.println(appliances.searchAppliances(id));
 	}
-		
+
 	public CustomerList getCustomers() {
 		return customers;
 	}
-	
+
 	public ApplianceList getAppliances() {
 		return appliances;
 	}
@@ -149,11 +162,11 @@ public class ShopSystem implements Serializable {
 		this.appliances = appliances;
 	}
 
-	public RepairPlanList getRepairPlans(){
+	public RepairPlanList getRepairPlans() {
 		return repairPlans;
 	}
 
-	public void setRepairPlans(RepairPlanList newRepairPlan){
+	public void setRepairPlans(RepairPlanList newRepairPlan) {
 		this.repairPlans = newRepairPlan;
 	}
 }
