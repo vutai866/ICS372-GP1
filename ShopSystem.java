@@ -23,6 +23,10 @@ public class ShopSystem implements Serializable {
 			return false;
 		}
 	}
+	
+		public OrderList getOrders() {
+		return orders;
+	}
 
 	public boolean addAppliance(Appliance appliance) {
 		if (appliances.insertAppliance(appliance)) {
@@ -65,10 +69,8 @@ public class ShopSystem implements Serializable {
 	}
 
 	public boolean addRepairPlan(Customer customer, Appliance appliance, int repairType, double repairCost) {
-		if (repairPlans.getRepairPlans() == null) {
-			RepairPlan plan = new RepairPlan(customer, appliance, repairType, repairCost);
-			repairPlans.insertRepairPlan(plan);
-		}
+		RepairPlan plan = new RepairPlan(customer, appliance, repairType, repairCost);
+		repairPlans.insertRepairPlan(plan);
 		return false;
 	} // end boolean addRepairPlan
 
