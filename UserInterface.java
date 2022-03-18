@@ -1,7 +1,10 @@
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.*;
 
@@ -11,9 +14,6 @@ public class UserInterface {
 	
 	public static void main(String[] args) {
 		UserInterface userInterface = new UserInterface();
-		
-		userInterface.testBed();
-		
 		try {
 		userInterface.run();
 		}catch(Exception e){
@@ -23,6 +23,11 @@ public class UserInterface {
 	
 	public void run() throws NumberFormatException, IOException {
 		System.out.println("Welcome to the Appliance Shop Management System.");
+		try {
+			load();
+		}catch(Exception e){
+			this.testBed();
+		}
 		while(true) {
 			/*This is the primary loop.
 			 * Every time the program returns here, it lists out a numbered list
@@ -69,9 +74,9 @@ public class UserInterface {
 			case 4:
 				purchase();
 				break;
-//			case 5:
-//				fulfillBackorder();
-//				break;
+			case 5:
+				fulfillBackorder();
+				break;
 			case 6: 
 				enrollCustomer();
 				break;
@@ -96,9 +101,9 @@ public class UserInterface {
 			case 13:
 				listBackorders();
 				break;
-			// case 14:
-			// 	save();
-			// 	break;
+			case 14:
+				save();
+				break;
 			case 15:
 				help();
 				System.out.println("Help!");
@@ -321,7 +326,7 @@ public class UserInterface {
 		
 	}
 	
-	public void Save() {
+	public void save() {
 		try {
 			FileOutputStream file = new FileOutputStream("storeData");
 			ObjectOutputStream out = new ObjectOutputStream(file);
@@ -332,6 +337,12 @@ public class UserInterface {
 			System.out.println(e.toString());
 			e.printStackTrace();
 		}
+	}
+	
+	public void load() throws IOException, ClassNotFoundException {
+		FileInputStream file = new FileInputStream("storeData");
+		ObjectInputStream in = new ObjectInputStream(file);
+		shop = (ShopSystem) in.readObject();
 	}
 
 	public void enrollCustomer(){
