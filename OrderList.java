@@ -40,6 +40,17 @@ public class OrderList implements Iterable<Order> {
 		}
 		return null;
 	}
+	
+	public Order findBackOrder() {
+		Iterator<Order> orderIterator = orders.iterator();
+		while (orderIterator.hasNext()) {
+			Order targetOrder = orderIterator.next();
+			if (targetOrder instanceof BackOrder) {
+				return targetOrder;
+			}
+		}
+		return null;
+	};
 
 	// getOrders returns a list of orders.
 	public List<Order> getOrders() {
