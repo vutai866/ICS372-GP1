@@ -9,6 +9,13 @@
             "name": "Launch UserInterface",
             "request": "launch",
             "mainClass": "UserInterface",
+            "projectName": "ICS372-GP1_50ee239b"
+        },
+        {
+            "type": "java",
+            "name": "Launch UserInterface",
+            "request": "launch",
+            "mainClass": "UserInterface",
             "projectName": "ICS372-GP1"
         },
         {

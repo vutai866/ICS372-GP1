@@ -7,9 +7,9 @@
 
  * */
 
-package edu.ics372.gp1;
+//package edu.ics372.gp1;
 
-import java.util.Random;
+import java.util.*;
 
 public class FacadeInterface {
 	Random random = new Random();

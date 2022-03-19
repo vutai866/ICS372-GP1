@@ -24,7 +24,7 @@ public class Backorder extends Order {
 
 	// toString method to return appliance and customer details
 	public String toString() {
-		return " Applaince Brand: " + getAppliance().getBrandName() + "\nAppliance Model: "
+		return " Appliance Brand: " + getAppliance().getBrandName() + "\nAppliance Model: "
 				+ getAppliance().getBrandName() + "\nCustomer Name: " + getBuyer().getCustomerPhoneNumber()
 				+ "\nCustomer ID: " + getBuyer().getCustomerID() + "\nQuantity: " + getQuantity();
 	}
