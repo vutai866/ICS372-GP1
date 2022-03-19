@@ -26,7 +26,7 @@ public class Appliance {
 		this.quantity = 0;
 	}
 
-	// getters and setters
+	// *getters and setters
 
 	public int getApplianceID() {
 		return applianceID;

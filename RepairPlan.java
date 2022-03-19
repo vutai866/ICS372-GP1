@@ -22,43 +22,81 @@ public class RepairPlan {
 		this.setRepairBalance(repairBalance);
 	}
 
-	// getters and setters
+	/**
+	 *  get CustomerID from Customer class 
+	 * @param customer
+	 */
 	public Customer getCustomerID() {
 		return CustomerID;
 	}
 
+	/**
+	 * get ApplianceID from Appliance class
+	 * @param customer
+	 */
 	public Appliance getApplianceID() {
 		return applianceID;
 	}
 
+	/**
+	 * set a new CustomerRepairID from Customer class
+	 * @param customer
+	 */
 	public void setCustomerRepairID(Customer CustomerID) {
 		this.CustomerID = CustomerID;
 	}
 
+	/**
+	 * set/change a new ApplianceRepairID from Appliance class
+	 * @param customer
+	 */
 	public void setApplianceRepairID(Appliance applianceID) {
 		this.applianceID = applianceID;
 	}
 
+	/**
+	 * set/change a new RepairPlan  
+	 * @param repairPlanType
+	 */
 	public void setPlanType(int repairPlanType) {
 		this.repairPlanType = repairPlanType;
 	}
 
+	/**
+	 * set/change a new RepairBalance
+	 * @param repairBalance
+	 */
 	public void setRepairBalance(double repairBalance) {
 		this.repairBalance = repairBalance;
 	}
 
+	/**
+	 * get CustomerRepairID
+	 * @param repairPlanType
+	 */
 	public int getRepairPlanType() {
 		return repairPlanType;
 	}
 
+	/**
+	 * get RepairBalance 
+	 * @param repairBalance
+	 */
 	public double getRepairBalance() {
 		return repairBalance;
 	}
 
+	/**
+	 * get Repair Plan ID 
+	 * @param repairPlanID
+	 */
 	public int getPlanID() {
 		return planID;
 	}
-
+	/**
+	 * set/change repairPlanID 
+	 * @param repairPlanID
+	 */
 	public void setPlanID(int planID) {
 		this.planID = planID;
 	}

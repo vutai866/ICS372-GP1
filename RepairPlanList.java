@@ -26,6 +26,10 @@ public class RepairPlanList implements Iterable<RepairPlan> {
 		return null;
 	}
 	
+	/**
+	 *  The customerRepairPlan method searches for a particular repairPlan
+	 * @param customer and appliance 
+	 */
 		public Customer customerWithPlan() {
 		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
 		while (repairPlanIterator.hasNext()) {
@@ -35,6 +39,10 @@ public class RepairPlanList implements Iterable<RepairPlan> {
 		return null;
 	}
 
+	/**
+	 * applyRepairPlan method applies a repairPlan to a customer and appliance
+	 * @param customer, appliance
+	 */
 	public Appliance applianceWithPlan() {
 		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
 		while (repairPlanIterator.hasNext()) {
