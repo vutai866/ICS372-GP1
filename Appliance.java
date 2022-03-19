@@ -1,8 +1,8 @@
 
 /**
  	* @authors Mwansa, Joseph, Tai, and Chee. 
-
- 	*The Appliance Class is a blueprint for appliance objects. 
+ 	*The Appliance Class represent an Appliance.
+	*it is a blueprint for appliance objects. 
  */
 import java.util.*;
 
