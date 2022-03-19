@@ -45,7 +45,7 @@ public class OrderList implements Iterable<Order> {
 		Iterator<Order> orderIterator = orders.iterator();
 		while (orderIterator.hasNext()) {
 			Order targetOrder = orderIterator.next();
-			if (targetOrder instanceof BackOrder) {
+			if (targetOrder instanceof Backorder) {
 				return targetOrder;
 			}
 		}

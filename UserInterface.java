@@ -26,7 +26,6 @@ public class UserInterface {
 	}
 
 	public void run() throws NumberFormatException, IOException {
-		testBed();
 		System.out.println("Welcome to the Appliance Shop Management System.");
 		try {
 			load();
