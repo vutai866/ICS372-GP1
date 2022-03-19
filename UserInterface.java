@@ -186,13 +186,18 @@ public class UserInterface {
 		shop.listEnrolledUsers();
 	}
 	
-	
-
+	/**
+	 * print all back orders from list
+	 */
 	public void listBackorders() {
 		System.out.println("Getting ready to print all Backorders");
 		shop.listBackorders();
 	}
 
+	/**
+	 * print appliance depends on the users
+	 * print all or specific appliances
+	 */
 	public void listAppliance() {
 
 		try {
@@ -215,6 +220,9 @@ public class UserInterface {
 
 	}
 
+	/**
+	 * add an appliance 
+	 */
 	public void addAppliance() {
 		try {
 			System.out.println("What type of appliance do you wish to add?");
@@ -280,6 +288,9 @@ public class UserInterface {
 		}
 	}
 
+	/**
+	 * add appliance quantity to appliance list
+	 */
 	public void addToInventory() {
 
 		try {
@@ -295,6 +306,9 @@ public class UserInterface {
 		}
 	};
 
+	/**
+	 * add a new customer
+	 */
 	public void addCustomer() {
 		try {
 			System.out.println("enter the customer name");
@@ -318,6 +332,9 @@ public class UserInterface {
 		}
 	}
 
+	/**
+	 * make a purchase/order
+	 */
 	public void purchase() {
 		try {
 			System.out.println("Input desired Customer ID");
@@ -351,6 +368,9 @@ public class UserInterface {
 		}
 	}
 
+	/**
+	 * full fill back orders 
+	 */
 	public void fulfillBackorder() throws NumberFormatException, IOException {
 		System.out.println("Input desired backorderID");
 		int backorderID = Integer.parseInt(bufferedReader.readLine());
@@ -358,6 +378,9 @@ public class UserInterface {
 
 	}
 
+	/**
+	 * Save the program 
+	 */
 	public void save() {
 		try {
 			FileOutputStream file = new FileOutputStream("storeData");
@@ -371,6 +394,9 @@ public class UserInterface {
 		}
 	}
 
+	/**
+	 * Load the program
+	 */
 	public void load() throws IOException, ClassNotFoundException {
 		FileInputStream file = new FileInputStream("storeData");
 		ObjectInputStream in = new ObjectInputStream(file);
@@ -379,6 +405,9 @@ public class UserInterface {
 		in.close();
 	}
 
+	/**
+	 * Enroll customer in repairPlan
+	 */
 	public void enrollCustomer() {
 		try {
 			System.out.println("Input desired Customer ID");
@@ -404,6 +433,9 @@ public class UserInterface {
 		}
 	}// end void enrollCustomer
 
+	/**
+	 * remove customer from repairPlan
+	 */
 	public void withdrawCustomer() {
 		try {
 			System.out.println("Input desired Customer ID");
@@ -425,6 +457,9 @@ public class UserInterface {
 		}
 	}// end void withdrawCustomer
 
+	/**
+	 * make a payment from customer for repair plan
+	 */
 	public void chargeAllRepairPlans() {
 		try {
 			System.out.println("Input desired Customer ID");
@@ -474,6 +509,9 @@ public class UserInterface {
 		}
 	}// end void chargeAllRepairPlans
 	
+	/**
+	 * print the revenue of the shop for repair plan
+	 */
 	public void printTotalRevenue() {
 		System.out.println("The total revenue is: $" + shop.totalRepairRevenue());
 	}
