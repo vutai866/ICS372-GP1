@@ -16,13 +16,19 @@ public class Backorder extends Order {
 		// TODO Auto-generated constructor stub
 	}
 
-	// *This method is used to establish the fulfillment of an order.
+	/**
+	 * The method fullfilled the order
+	 * turn it into a regular order to be remenbered
+	 */
 	public Order fulfilled() {
 		Order order = new Order(super.getOrderPrice(), super.getQuantity(), super.getBuyer(), super.getAppliance());
 		return order;
 	}
 
-	// *toString method to return appliance and customer details
+	
+	/**
+	 * a to string method that show what backorder look like when print
+	 */
 	public String toString() {
 		return " Appliance Brand: " + getAppliance().getBrandName() + "\nAppliance Model: "
 				+ getAppliance().getBrandName() + "\nCustomer Name: " + getBuyer().getCustomerPhoneNumber()
