@@ -354,6 +354,8 @@ public class UserInterface {
 		FileInputStream file = new FileInputStream("storeData");
 		ObjectInputStream in = new ObjectInputStream(file);
 		shop = (ShopSystem) in.readObject();
+
+		in.close();
 	}
 
 	public void enrollCustomer() {
@@ -370,10 +372,10 @@ public class UserInterface {
 			double repairBalance = 0;
 
 			if (shop.addRepairPlan(customer, appliance, repairType, repairBalance)) {
-				System.out.println("Customer enrolled sucessfully");
+				System.out.println("Customer enrolled Sucessfully");
 				return;
 			} else {
-				System.out.println("Customer already enrolled");
+				System.out.println("Customer already enrolled!");
 			}
 		} catch (Exception e) {
 			System.out.println("invalid input");
@@ -442,7 +444,6 @@ public class UserInterface {
 				}
 				return;
 			} else {
-				// This part relies on other things not yet finished.
 				System.out.println("Customer not enrolled for repair plan");
 			}
 
