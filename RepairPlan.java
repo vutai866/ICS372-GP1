@@ -143,7 +143,7 @@ public class RepairPlan {
 		return "Customer Name: " + CustomerID.getCustomerName() + "\nCustomer Address: "
 				+ CustomerID.getCustomerAddress() + "\nCustomer Phone Number: " + CustomerID.getCustomerPhoneNumber()
 				+ "\nAppliance Brand: " + applianceID.getBrandName() + "\nAppliance Model: "
-				+ applianceID.getApplianceName();
+				+ applianceID.getApplianceName() + "\n";
 	}
 
 }

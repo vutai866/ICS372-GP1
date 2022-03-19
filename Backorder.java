@@ -32,7 +32,7 @@ public class Backorder extends Order {
 	public String toString() {
 		return " Appliance Brand: " + getAppliance().getBrandName() + "\nAppliance Model: "
 				+ getAppliance().getBrandName() + "\nCustomer Name: " + getBuyer().getCustomerPhoneNumber()
-				+ "\nCustomer ID: " + getBuyer().getCustomerID() + "\nQuantity: " + getQuantity();
+				+ "\nCustomer ID: " + getBuyer().getCustomerID() + "\nQuantity: " + getQuantity() + "\n";
 	}
 
 }

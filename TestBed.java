@@ -1,3 +1,4 @@
+
 /**
  	* @authors Mwansa, Joseph, Tai, and Chee. 
 
@@ -16,8 +17,8 @@ public class TestBed {
 	}
 
 	/**
-	 * this class invoke the functionality 
-	 * and use asserts to make sure the answers are correct.
+	 * this class invoke the functionality and use asserts to make sure the answers
+	 * are correct.
 	 * 
 	 */
 	public void test() {
@@ -31,10 +32,10 @@ public class TestBed {
 		facade.printTotalRevenue();
 
 	}
-	
+
 	/**
-	 * this class create 5 customers
-	 * and then insert them directly into the customerlist
+	 * this class create 5 customers and then insert them directly into the
+	 * customerlist
 	 */
 	public void makeCustomers() {
 
@@ -52,8 +53,8 @@ public class TestBed {
 	}
 
 	/**
-	 * this class create at least 20 appliances
-	 * and then insert them directly into the customerlist
+	 * this class create at least 20 appliances and then insert them directly into
+	 * the customerlist
 	 */
 	public void makeAppliances() {
 		for (int i = 0; i < 20; i++) {

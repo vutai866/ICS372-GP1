@@ -26,8 +26,7 @@ public class FacadeInterface {
 
 	/**
 	 * invoke use case 3 addTotheInventory randomly pick a appliance and add a
-	 * random quantity to the appliance 
-	 * assert that the appliance did in fact change
+	 * random quantity to the appliance assert that the appliance did in fact change
 	 */
 	public void addToInventory() {
 		int randomAppliance = random.nextInt(shop.getAppliances().getAppliances().size());
@@ -41,8 +40,7 @@ public class FacadeInterface {
 
 	/**
 	 * invoke use case 4 randomly pick a appliance and customer make the customer
-	 * buy the appliance 
-	 * assert an order did in fact get added to orderList
+	 * buy the appliance assert an order did in fact get added to orderList
 	 */
 	public void purchase() {
 		try {
@@ -108,8 +106,8 @@ public class FacadeInterface {
 	}// end void withdrawCustomer
 
 	/**
-	 * invoke use case 9 print the totalRevenue 
-	 * assert the the amount is actually what it is.
+	 * invoke use case 9 print the totalRevenue assert the the amount is actually
+	 * what it is.
 	 */
 	public void printTotalRevenue() {
 		System.out.println("The total revenue is: $" + shop.totalRepairRevenue());
@@ -173,8 +171,9 @@ public class FacadeInterface {
 	}
 
 	/**
-	 * invoke test use case 6 add a random customer and enroll them in a random appliance repair plan 
-	 * assert that the repair plan is actually created and added
+	 * invoke test use case 6 add a random customer and enroll them in a random
+	 * appliance repair plan assert that the repair plan is actually created and
+	 * added
 	 */
 	public void enrollCustomer() {
 		try {
@@ -220,5 +219,3 @@ public class FacadeInterface {
 
 	}
 }
-
-
