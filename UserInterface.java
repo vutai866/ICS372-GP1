@@ -192,14 +192,7 @@ public class UserInterface {
 		System.out.println("Getting ready to print all Users in repair plans");
 		shop.listEnrolledUsers();
 	}
-<<<<<<< HEAD
-	
-	/**
-	 * print all back orders from list
-	 */
-=======
 
->>>>>>> e49ee5639845f479a701be336528d5eda62b0e5c
 	public void listBackorders() {
 		System.out.println("Getting ready to print all Backorders");
 		shop.listBackorders();
@@ -519,14 +512,10 @@ public class UserInterface {
 			return;
 		}
 	}// end void chargeAllRepairPlans
-<<<<<<< HEAD
-	
-	/**
-	 * print the revenue of the shop for repair plan
-	 */
-=======
 
->>>>>>> e49ee5639845f479a701be336528d5eda62b0e5c
+	/**
+	 * print the total revenue from the repair plan 
+	 */
 	public void printTotalRevenue() {
 		System.out.println("The total revenue is: $" + shop.totalRepairRevenue());
 	}
