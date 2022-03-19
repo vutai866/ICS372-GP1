@@ -15,9 +15,10 @@ import java.io.ObjectOutputStream;
 public class UserInterface {
 	BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));// Used to read input.
 	ShopSystem shop = new ShopSystem();
-	
+
 	/**
 	 * this is the main method that start the program
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -28,8 +29,11 @@ public class UserInterface {
 			System.out.println(e.toString());
 		}
 	}
+
 	/**
-	 * the run method execute the code and ask which function the user want to invoke
+	 * the run method execute the code and ask which function the user want to
+	 * invoke
+	 * 
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
@@ -99,8 +103,8 @@ public class UserInterface {
 				chargeAllRepairPlans();
 				break;
 			case 9:
-			 	printTotalRevenue();
-			 	break;
+				printTotalRevenue();
+				break;
 			case 10:
 				listAppliance();
 				break;
@@ -125,9 +129,10 @@ public class UserInterface {
 			}
 		}
 	}
+
 	/**
-	 * make a testBed that generate 20 appliances and 5 customers
-	 * and then test all the function
+	 * make a testBed that generate 20 appliances and 5 customers and then test all
+	 * the function
 	 */
 	public void testBed() {
 		TestBed testBed = new TestBed(shop);
@@ -145,6 +150,7 @@ public class UserInterface {
 			System.out.println(" you inputed incorrectly");
 		}
 	}
+
 	/**
 	 * print information about what each function does
 	 */
@@ -157,11 +163,12 @@ public class UserInterface {
 		System.out.println("4. \tBuy a model - a customer can buy an appliance");
 		System.out.println("5. \tFulfill a backorder - if you have a backorder this fuction will fullfill it");
 		System.out.println("6. \tEnroll a customer in a repair plan - if a customer want a repair plan this"
-				   + " function enroll them in one");
+				+ " function enroll them in one");
 		System.out.println("7. \tWithdraw a customer from a repair plan - if the customer don't want to be part of the"
-				   +" repair plan anymore this function remove them");
+				+ " repair plan anymore this function remove them");
 		System.out.println("8. \tCharge all repair plans - If there are repair plan make the customer pay for them ");
-		System.out.println("9. \tPrint total revenue from all repair plans. - print the amount of money made from repair plan");
+		System.out.println(
+				"9. \tPrint total revenue from all repair plans. - print the amount of money made from repair plan");
 		System.out.println("10. \tList appliances - list either all or one specify by the user");
 		System.out.println("11. \tList all users in repair plans - list all the repair plan");
 		System.out.println("12. \tList all users - list every customer registered");
@@ -185,8 +192,6 @@ public class UserInterface {
 		System.out.println("Getting ready to print all Users in repair plans");
 		shop.listEnrolledUsers();
 	}
-	
-	
 
 	public void listBackorders() {
 		System.out.println("Getting ready to print all Backorders");
@@ -473,7 +478,7 @@ public class UserInterface {
 			return;
 		}
 	}// end void chargeAllRepairPlans
-	
+
 	public void printTotalRevenue() {
 		System.out.println("The total revenue is: $" + shop.totalRepairRevenue());
 	}

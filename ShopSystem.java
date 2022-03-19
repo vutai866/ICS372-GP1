@@ -22,8 +22,8 @@ public class ShopSystem implements Serializable {
 			return false;
 		}
 	}
-	
-		public OrderList getOrders() {
+
+	public OrderList getOrders() {
 		return orders;
 	}
 
@@ -90,17 +90,17 @@ public class ShopSystem implements Serializable {
 
 	public RepairPlan repairCost(Customer customer, Appliance appliance) {
 		return repairCost(customer, appliance);
-	 }// end repairCost
-	 
-	 public double totalRepairRevenue() {
-		 double total = 0;
-		 List<RepairPlan> plans = repairPlans.getTotalCost();
-		 for(int index = 0; index < plans.size(); index++) {
-			 total += plans.get(index).getRepairBalance();
-		 }
-		 return total;
-	 }
-	
+	}// end repairCost
+
+	public double totalRepairRevenue() {
+		double total = 0;
+		List<RepairPlan> plans = repairPlans.getTotalCost();
+		for (int index = 0; index < plans.size(); index++) {
+			total += plans.get(index).getRepairBalance();
+		}
+		return total;
+	}
+
 	// end repairCost
 
 	public void listAppliances() {
