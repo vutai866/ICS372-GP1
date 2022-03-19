@@ -99,7 +99,7 @@ public class Customer {
 	// This toString method returns all of the customer details
 	public String toString() {
 		return "Customer ID: " + customerID + "\nCustomer Name: " + customerName + "\nCustomer Address: "
-				+ customerAddress + "\nCustomer Phone Number: " + customerPhoneNumber;
+				+ customerAddress + "\nCustomer Phone Number: " + customerPhoneNumber  + "\n";
 
 	}
 

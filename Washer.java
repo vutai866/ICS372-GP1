@@ -17,7 +17,8 @@ public class Washer extends Appliance {
 	}
 
 	/**
-	 *  get/collect the repair balance to inform the customer 
+	 * get/collect the repair balance to inform the customer
+	 * 
 	 * @param repairPlanCost
 	 */
 	public int getRepairPlanCost() {
