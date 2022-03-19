@@ -16,6 +16,10 @@ public class Washer extends Appliance {
 		this.repairPlanCost = repairPlanCost;
 	}
 
+	/**
+	 *  get/collect the repair balance to inform the customer 
+	 * @param repairPlanCost
+	 */
 	public int getRepairPlanCost() {
 		return repairPlanCost;
 	}
