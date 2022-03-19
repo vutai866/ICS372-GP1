@@ -15,7 +15,11 @@ import java.io.ObjectOutputStream;
 public class UserInterface {
 	BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));// Used to read input.
 	ShopSystem shop = new ShopSystem();
-
+	
+	/**
+	 * this is the main method that start the program
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		UserInterface userInterface = new UserInterface();
 		try {
@@ -24,7 +28,11 @@ public class UserInterface {
 			System.out.println(e.toString());
 		}
 	}
-
+	/**
+	 * the run method execute the code and ask which function the user want to invoke
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	public void run() throws NumberFormatException, IOException {
 		System.out.println("Welcome to the Appliance Shop Management System.");
 		try {
@@ -117,6 +125,10 @@ public class UserInterface {
 			}
 		}
 	}
+	/**
+	 * make a testBed that generate 20 appliances and 5 customers
+	 * and then test all the function
+	 */
 	public void testBed() {
 		TestBed testBed = new TestBed(shop);
 
@@ -133,36 +145,48 @@ public class UserInterface {
 			System.out.println(" you inputed incorrectly");
 		}
 	}
-
+	/**
+	 * print information about what each function does
+	 */
 	public void help() {
 		System.out.println("What would you like to do?");
 		System.out.println("0. \tExit - Quit the program");
 		System.out.println("1. \tAdd a new model - Create a new appliance model");
 		System.out.println("2. \tAdd a customer - Add a new customer ");
-		System.out.println("3. \tAdd to inventory");
-		System.out.println("4. \tBuy a model");
-		System.out.println("5. \tFulfill a backorder");
-		System.out.println("6. \tEnroll a customer in a repair plan");
-		System.out.println("7. \tWithdraw a customer from a repair plan");
-		System.out.println("8. \tCharge all repair plans");
-		System.out.println("9. \tPrint total revenue from all repair plans.");
-		System.out.println("10. \tList appliances");
-		System.out.println("11. \tList all users in repair plans");
-		System.out.println("12. \tList all users");
-		System.out.println("13. \tList all backorders");
-		System.out.println("14. \tSave");
-		System.out.println("15. \tHelp");
+		System.out.println("3. \tAdd to inventory - add qauntity to an appliance");
+		System.out.println("4. \tBuy a model - a customer can buy an appliance");
+		System.out.println("5. \tFulfill a backorder - if you have a backorder this fuction will fullfill it");
+		System.out.println("6. \tEnroll a customer in a repair plan - if a customer want a repair plan this"
+				   + " function enroll them in one");
+		System.out.println("7. \tWithdraw a customer from a repair plan - if the customer don't want to be part of the"+
+				   +" repair plan anymore this function remove them");
+		System.out.println("8. \tCharge all repair plans - If there are repair plan make the customer pay for them ");
+		System.out.println("9. \tPrint total revenue from all repair plans. - print the amount of money made from repair plan");
+		System.out.println("10. \tList appliances - list either all or one specify by the user");
+		System.out.println("11. \tList all users in repair plans - list all the repair plan");
+		System.out.println("12. \tList all users - list every customer registered");
+		System.out.println("13. \tList all backorders - list all the backorder");
+		System.out.println("14. \tSave - save the information");
+		System.out.println("15. \tHelp - ask for help regarding what each function does");
 	}// end help
 
+	/**
+	 * print all the users
+	 */
 	public void listUsers() {
 		System.out.println("Getting ready to print all User information");
 		shop.listUsers();
 	}
 
+	/**
+	 * find all the users that are enrolled and print them
+	 */
 	public void listEnrolledUsers() {
 		System.out.println("Getting ready to print all Users in repair plans");
 		shop.listEnrolledUsers();
 	}
+	
+	
 
 	public void listBackorders() {
 		System.out.println("Getting ready to print all Backorders");
