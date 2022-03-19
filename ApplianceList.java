@@ -12,27 +12,19 @@ import java.util.Random;
 public class ApplianceList implements Iterable<Appliance> {
 	private List<Appliance> appliances = new ArrayList<>();
 
-	// **insertAppliance adds an appliance into the list of appliances.
+	/**
+	 *  Add a new appliance to the list of appliances
+	 * @param appliance
+	 */
 	public boolean insertAppliance(Appliance appliance) {
 		appliances.add(appliance);
 		return true;
 	}
-	
-	public Appliance random() {
-		Iterator<Appliance> applianceIterator = appliances.iterator();
-		int randomNumber = new Random().nextInt((appliances.size() - 0) + 1);
-		int count = 0;
-		while (applianceIterator.hasNext()) {
-			Appliance targetAppliance = applianceIterator.next();
-			if (count == randomNumber) {
-				return targetAppliance;
-			}
-			count++;
-		}
-		return null;
-	}
 
-	// **seachAppliance searches for a particular appliance using the appliance ID.
+	/**
+	 *  search for appliance in the appliance list by its ID 
+	 * @param applianceID
+	 */
 	public Appliance searchAppliances(int applianceID) {
 		Iterator<Appliance> applianceIterator = appliances.iterator();
 		while (applianceIterator.hasNext()) {
@@ -44,7 +36,10 @@ public class ApplianceList implements Iterable<Appliance> {
 		return null;
 	}
 
-	// **getAppliaces returns a list of all the appliances.
+	/**
+	 *  get/collect the appliance list
+	 * @param appliances
+	 */
 	public List<Appliance> getAppliances() {
 		return appliances;
 	}

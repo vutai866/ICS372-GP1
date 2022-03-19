@@ -52,14 +52,20 @@ public class RepairPlanList implements Iterable<RepairPlan> {
 		return null;
 	}
 
-	// insertRepairPlan adds a repairPlan into the list of repairPlans.
+	/**
+	 * add a repairPlan into the list of repairPlans then return true 
+	 * InsertRepairPlan adds a repairPlan into the list of repairPlans.
+	 * @param RepairPlan
+	 */
 	public boolean insertRepairPlan(RepairPlan RepairPlan) {
 		repairPlans.add(RepairPlan);
 		return true;
 	}
 
-	// removeRepairPlan terminates a repair plan using customer and appliance
-	// parameters
+	/**
+	 * remove/terminate a RepairPlan 
+	 * @param customerID, appliance
+	 */
 	public void removeRepairPlan(Customer customer, Appliance appliance) {
 		for (int i = 0; i < repairPlans.size(); i++) {
 			if (repairPlans.get(i).getCustomerID() == customer && repairPlans.get(i).getApplianceID() == appliance) {
@@ -69,8 +75,10 @@ public class RepairPlanList implements Iterable<RepairPlan> {
 		}
 	}
 
-	// repairCost is used to update the repairPlanBalance using the customer and
-	// appliance parameters
+	/**
+	 * calculate the repair balance and update the repairPlanBalance
+	 * @param customer, appliance
+	 */
 	public void repairCost(Customer customer, Appliance appliance) {
 		for (int i = 0; i < repairPlans.size(); i++) {
 			if (repairPlans.get(i).getCustomerID() == customer && repairPlans.get(i).getApplianceID() == appliance) {
@@ -81,8 +89,10 @@ public class RepairPlanList implements Iterable<RepairPlan> {
 		}
 	}
 
-	// chargeRepairPlan is used to charge a repair plan customer for enrolling into
-	// a repair plan
+	/**
+	 * colect customer payment and then charge a repair plan by get balance - payment. 
+	 * @param customer, payment
+	 */
 	public double chargeRepairPlan(Customer customer, double payment) {
 		for (int i = 0; i < repairPlans.size(); i++) {
 			if (repairPlans.get(i).getCustomerID() == customer) {
@@ -95,7 +105,10 @@ public class RepairPlanList implements Iterable<RepairPlan> {
 		return 0;
 	}
 
-	// searchRepairPlan searches for a particular repair plan using the repairPlanID
+	/**
+	 * search for the particular repair plan 
+	 * @param RepairPlanID
+	 */
 	public RepairPlan searchRepairPlan(int repairPlanID) {
 		Iterator<RepairPlan> repairPlanIterator = repairPlans.iterator();
 		while (repairPlanIterator.hasNext()) {
@@ -107,15 +120,21 @@ public class RepairPlanList implements Iterable<RepairPlan> {
 		return null;
 	}
 
-	// getRepairPlans returns a lost of all repair plans
+	/**
+	 * get the list of all repair plans
+	 * @param RepairPlan
+	 */
 	public List<RepairPlan> getRepairPlans() {
 		return repairPlans;
 	}
 
-	// getTotalCost returns the a list of the total cost of all repair plans
+	/**
+	 * get the total repair cost and return it 
+	 * @param RepairPlan
+	 */
 	public List<RepairPlan> getTotalCost() {
 		return repairPayment;
-	}
+	} // end getTotalCost
 
 	@Override
 	public Iterator<RepairPlan> iterator() {

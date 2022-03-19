@@ -28,42 +28,82 @@ public class Appliance {
 
 	// *getters and setters
 
+	/**
+	 *  get/collect appliance ID
+	 * @param applianceID
+	 */
 	public int getApplianceID() {
 		return applianceID;
 	}
 
+	/**
+	 *  set/change appliance ID
+	 * @param applianceID
+	 */
 	public void setApplianceID(int applianceID) {
 		this.applianceID = applianceID;
 	}
 
+	/**
+	 *  get/collect appliance name
+	 * @param applianceName
+	 */
 	public String getApplianceName() {
 		return applianceName;
 	}
 
+	/**
+	 *  set/change appliance name
+	 * @param applianceName
+	 */
 	public void setApplianceName(String applianceName) {
 		this.applianceName = applianceName;
 	}
 
+	/**
+	 *  get/collect the appliance brand name
+	 * @param brandName
+	 */
 	public String getBrandName() {
 		return brandName;
 	}
 
+	/**
+	 *  set/change the appliance brand name
+	 * @param brandName
+	 */
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
 	}
 
+	/**
+	 *  get/collect the appliance price
+	 * @param price
+	 */
 	public double getPrice() {
 		return price;
 	}
 
+	/**
+	 *  set/change the appliance price
+	 * @param price
+	 */
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
+	/**
+	 *  get/collect the appliance quantity
+	 * @param quantity
+	 */
 	public int getQuantity() {
 		return quantity;
 	}
 
+	/**
+	 *  set/change the appliance quantity
+	 * @param quantity
+	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}

@@ -17,7 +17,10 @@ public class Dryer extends Appliance {
 		this.repairPlanCost = repairPlanCost;
 	}
 
-	// getter for repairPlanCost
+	/**
+	 *  get/collect the repairPlanCost
+	 * @param repairPlanCost
+	 */
 	public int getRepairPlanCost() {
 		return repairPlanCost;
 	}

@@ -13,7 +13,10 @@ import java.util.Random;
 public class CustomerList implements Iterable<Customer> {
 	private List<Customer> customers = new ArrayList<>();
 
-	// insertCustomer adds a customer into the list of customers.
+	/**
+	 *  Insert a customer to the customer list and return true when successful
+	 * @param customer
+	 */
 	public boolean insertCustomer(Customer customer) {
 		customers.add(customer);
 		return true;
@@ -33,7 +36,10 @@ public class CustomerList implements Iterable<Customer> {
 		return null;
 	}
 
-	// seachCustomer searches for a particular customer using the customer ID.
+	/**
+	 *  search for the particular customer by customerID
+	 * @param customerID
+	 */
 	public Customer searchCustomers(int customerID) {
 		Iterator<Customer> customerIterator = customers.iterator();
 		while (customerIterator.hasNext()) {
@@ -45,7 +51,10 @@ public class CustomerList implements Iterable<Customer> {
 		return null;
 	}
 	
-	// getCustomers returns the list of customers.
+	/**
+	 *  get/collect the customer list
+	 * @param customers
+	 */
 	public List<Customer> getCustomers() {
 		return customers;
 	}

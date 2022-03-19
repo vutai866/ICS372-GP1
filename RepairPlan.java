@@ -101,30 +101,44 @@ public class RepairPlan {
 		this.planID = planID;
 	}
 
-	// setRepairPlanType can be used to change Repair Plan Type
+	/**
+	 * set a new repair plan type 
+	 * @param RepairPlan
+	 */
 	public void setRepairPlanType(int newPlanType) {
 		setPlanType(newPlanType);
 	}
 
-	// changeNewRepairBalance is used to update repairPlanBalance
+	/**
+	 * change/update new repair balance due to customer make a payment 
+	 * @param repairBalance
+	 */
 	public void changeNewRepairBalance(double newRepairBalance) {
 		setRepairBalance(newRepairBalance);
 	}
 
-	// removeRepairPlan is used to terminate a repairPlan
+	/**
+	 * remove/terminate a repair plan due to customer withdraw repair plan
+	 * @param customer,appliance
+	 */
 	public void removeRepairPlan(Customer customer, Appliance appliance) {
 		this.repairPlanType = 0;
 		this.repairBalance = 0;
 	}
 
-	// repairBalance is used to check repairPlan balance
+	/**
+	 * check for repair balance need to be paid
+	 * @param customer,appliance
+	 */
 	public double repairBalance(Customer customer, Appliance appliance) {
 		this.repairBalance = this.repairBalance + this.repairBalance * 0.1;
 		return this.repairBalance;
 	}
 
-	// This toString method returns customer and appliance details for on a
-	// repairPlan
+	/**
+	 * This toString method returns customer and appliance details for on a repairPlan
+	 * @param CustomerID,applianceID
+	 */
 	public String toString() {
 		return "Customer Name: " + CustomerID.getCustomerName() + "\nCustomer Address: "
 				+ CustomerID.getCustomerAddress() + "\nCustomer Phone Number: " + CustomerID.getCustomerPhoneNumber()

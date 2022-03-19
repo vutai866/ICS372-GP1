@@ -12,13 +12,19 @@ import java.util.List;
 public class OrderList implements Iterable<Order> {
 	private List<Order> orders = new ArrayList<>();
 
-	// insertOrder adds an order into the list of orders.
+	/**
+	 *  Insert an order to the order list and return true when successful
+	 * @param Order
+	 */
 	public boolean insertOrder(Order Order) {
 		orders.add(Order);
 		return true;
 	}
 
-	// removeOrder removes an order from the last of orders by using the orderID
+	/**
+	 *  remove an order from the last order from the order list and then return the list 
+	 * @param OrderID
+	 */
 	public void removeOrder(int orderID) {
 		for (int i = 0; i < orders.size(); i++) {
 			if (orders.get(i).getOrderID() == orderID) {
@@ -28,8 +34,10 @@ public class OrderList implements Iterable<Order> {
 		}
 	}
 
-	// searchOrder searches the list of orders using an order ID to find a
-	// particular order.
+	/**
+	 *  search for a particular order from the list of orders
+	 * @param Order,OrderID
+	 */
 	public Order searchOrders(int orderID) {
 		Iterator<Order> orderIterator = orders.iterator();
 		while (orderIterator.hasNext()) {
@@ -40,7 +48,11 @@ public class OrderList implements Iterable<Order> {
 		}
 		return null;
 	}
-	
+
+	/**
+	 *  find the particular back order from order list 
+	 * @param Order,targetOrder
+	 */
 	public Order findBackOrder() {
 		Iterator<Order> orderIterator = orders.iterator();
 		while (orderIterator.hasNext()) {
@@ -52,7 +64,10 @@ public class OrderList implements Iterable<Order> {
 		return null;
 	};
 
-	// getOrders returns a list of orders.
+	/**
+	 *  get and return the list of orders
+	 * @param Order
+	 */
 	public List<Order> getOrders() {
 		return orders;
 	}
